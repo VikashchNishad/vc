@@ -1,0 +1,44 @@
+{
+  "name": "tutorial-shaala",
+  "version": "1.0.0",
+  "description": "MEAN stack application",
+  "engines": {
+    "node": "6.10.2"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VikashchNishad/Tutorial_Shaala.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "VikashChNishad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VikashchNishad/Tutorial_Shaala/issues"
+  },
+  "homepage": "https://github.com/VikashchNishad/Tutorial_Shaala#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-jwt": "^0.1.9",
+    "angular-route": "^1.6.4",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.0",
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.9.4",
+    "mongoose-unique-validator": "^1.0.5",
+    "nodemailer": "^4.0.1",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  }
+}

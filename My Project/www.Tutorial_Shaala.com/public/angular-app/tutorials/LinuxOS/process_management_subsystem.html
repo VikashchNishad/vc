@@ -1,0 +1,1025 @@
+<head>
+  
+  <style>
+    
+        body { 
+          font-family: 'Quicksand', sans-serif;
+              font-size: 16px;
+            background: #eee;
+         }
+        #page-wrap {  margin: 15px auto; position: relative; }
+        p { margin: 0 0 15px 0; text-indent: 50px;}
+        #main { width: 750px; float: left; background: white; padding: 70px 17px 17px 17px; margin-left: 35px;}
+        #sidebar div { padding: 10px; background: white;  }
+        #sidebar { width: 400px; position: fixed; left: 62%; top: 120px; margin-left:  75px; }
+ 
+        #page-wrap strong{
+          font-family: 'Quicksand', sans-serif;
+        }
+
+       ul.fa-ul li {
+           margin-left: 20px;
+            padding: 1px;
+        }
+
+          ul.fa-ul> li > a,
+          ul.fa-ul > li > a:focus {
+            z-index: 9999;
+            
+          }
+
+          ul.fa-ul > li.active > a,
+          ul.fa-ul > li.active > a:focus {
+           text-decoration: underline;
+          }
+
+          ul.fa-ul > li > a:hover,
+          ul.fa-ul > li > a:focus:hover {
+            opacity: 1;
+            text-decoration: underline;
+            filter: alpha(opacity=100);
+             transition: all 02s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+                }
+          ul.fa-ul li a:active,
+          ul.fa-ul  li a:focus {
+          text-decoration: underline;
+           opacity: 1;
+          filter: alpha(opacity=100);
+        }
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+  }
+
+.form {
+  border-color: rgba(240, 95, 64, 0.6);
+}
+
+.form:hover {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .form:focus {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .send {
+      color: rgba(240, 95, 64, 1.0);
+          border-color: rgba(240, 95, 64, 1.0);
+          padding: 7px 17px;
+          text-transform: uppercase;
+    }
+    .send:hover {
+       background-color: rgba(240, 95, 64, 0.9);
+          color: #FFFFFF;
+    }
+  
+    .send:focus {
+       background-color: rgba(240, 95, 64, 0.9);
+       border-color: rgba(240, 95, 64, 1.0);
+          color: #FFFFFF;
+    }
+  ul {
+    font-family: 'Lato', sans-serif;
+  }
+     ul.comment_list {
+      transform: rotate(180deg);
+      }
+  ul.comment_list > li {
+      transform: rotate(-180deg);
+    }
+
+
+  li.name {
+    list-style-type: none;
+  }
+    .name h4 {
+      color: rgba(240, 95, 64, 1.0);
+    }
+    .name h4 small{
+      color: rgba(240, 95, 64, 0.9);
+    }
+   .input_search {
+        border-color: rgba(240, 95, 64, 0.6);
+    }
+    .input_search:focus {
+         border: 1px solid rgba(240, 95, 64, 1.0);
+    }
+    .search{
+        border-color: rgba(240, 95, 64, 0.7);
+    }
+    .search:hover {
+        background-color: rgba(240, 95, 64, 0.7);
+    }
+     
+    div.scroll {
+    background-color: #00FFFF;
+    height: 511px;
+    overflow: scroll;
+    }
+    a{
+        font-family: 'Quicksand', sans-serif;
+        -webkit-transition: all 0.35s;
+        -moz-transition: all 0.35s;
+        transition: all 0.35s;
+        color: #F05F40;
+        font-size: 15px;
+    }
+
+         ol li {
+           padding: 2px;
+             margin-left: 50px;
+        } 
+         ul.fork li {
+           padding: 2px;
+             margin-left: 0px;
+        } 
+
+        .code code {
+          font-size: 14px;
+        }
+
+        .code code p {
+          font-size: 14px;
+        }
+
+        hr.code_hr{
+           border-color:  #E6E6FA;
+          border-width: 1px;
+          max-width: 1200px;
+        }
+
+    </style>
+
+<body>
+    
+    <div class="container">
+
+  <div id="page-wrap">
+      
+    <div id="main">
+         <h1 style="text-align: center;">Process Management Subsystem</h1>
+         <hr>
+         <br>
+         <p>When a program is started, it creates what is known as “Process” on the system. Every process has a unique ID which is used to identify them. Processes can be created by any user but can only destroyed by someone with the permission to do so – usually the user that created the process or the system administrator.</p>
+         <p>Processes can spawn other processes, kill other processes, communicate with other processes and much more. The running process in Linux can spawn “child” processes. Child processes will be associated with their own process ID (PID) as well as their parent’s process ID (PPID).For eg: when ls command is executed, internally shell creates a child process and shell is parent process of this child.</p>
+         <p style="text-indent: 0px;">The OS tracks processes through the PID. Each process in the system has a unique PID. PID’s can be repeat but no two can have same PID at a time.</p>
+         <p style="text-indent: 0px;">Any user program can be executed in two way i.e. either as <strong>foreground process</strong> or as <strong>back ground process</strong>.</p>
+
+        <h4><span style="text-decoration: underline">Foreground Processes</span> &#8722; </h4>
+        <p>By default, every processes runs in foreground, it takes input from the keyboard and sends its output to the screen. While running processes in foreground and taking much time, we can’t run any other processes because prompt would not be available until program finished it’s processing and come out. For eg: executing cat command.</p>
+
+        <h4><span style="text-decoration: underline">Back Ground Process</span> &#8722; </h4>
+        <p>The Background processes runs without being connected to keyboard. We can run other commands or processes while one process is running. We don’t need to wait until the 1st process completes to start another. If background process required any key then it has to bring in foreground. These processes also called <strong>Daemon Processes</strong>.</p>
+        <p>The simplest way to start a background process is to add an ampersand (&) at the end of the command. For eg: ./a.out &</p>
+
+        <p style="text-indent: 0px;">The concept similar to background process is daemon process. A daemon runs in the background, usually waiting for something to happen, like printer daemon is waiting for print commands. A daemon process can’t have control on terminal, it can’t open /dev/tty. For eg: ps –ef at the tty field all daemon will have ? for tty. If any program that need to do long processing, then it is worth to make is a daemon and run it in background.</p>
+
+        <p style="text-indent: 0px;">From the time a process is created till it completes its job, it goes through many different states. The state of the processes is changed many times during its life.</p>
+        <p style="text-indent: 0px;">The following diagram shows the lifecycle of a process in Linux OS.</p>
+        <img src="/images/Linux/linux_os2.jpg" style="width: 650px;">
+         <br><br>
+        <p style="text-indent: 0px;">Every process is created using the system call fork() in Linux OS. Once the process created based on the availability of memory, the process will go to ready task (TASK_RUNNIG: ready not running) which can be either in RAM or swap area. We can have multiple process residing at time in ready state. When CPU is free the scheduler selects the process and dispatches to run state (TASK_RUNNING: running). In case the process encounter an I/O request, it will moved from run state to wait state (TASK_INTERRUPTIBLE). Where the process perform some event and then it will be moved back to ready state. If the time slice gets over or if a higher priority process arrives, currently running process will be stopped and it goes in ready queue. Once the process completed his job, it goes in zombie state.</p>
+
+        <h4><span style="text-decoration: underline">Process descriptor</span> &#8722; </h4>
+        <p>The process descriptor is a structure called task_struct, which keeps track of process attributes and information. The kernel stores all the process descriptor in circular double linked list called task_list.  The kernel also keeps the reference to the currently running process’s task_struct in the global variable “current”.</p>
+
+        <p style="text-indent: 0px; font-style: italic;">The attributes of process descriptors :-</p>
+
+        <ol>
+          <li>Process attributes
+            <ul style="list-style-type: square;">
+              <li>State: keeps track the state of process during its execution life cycle.</li>
+               <li>PID: keeps track the PID of running processes.</li>
+            </ul>
+          </li>
+          <li>Scheduling attributes
+            <ul style="list-style-type: square;">
+              <li>Priority of the processes.</li>
+               <li>Time slice: The maximum time in which process is allowed to run.</li>
+            </ul>
+          </li>
+          <li>Process relationship
+            <ul style="list-style-type: square;">
+              <li>Pointer to parents process descriptor.</li>
+               <li>Pointer to child’s process descriptor.</li>
+            </ul>
+          </li>
+          <li>Process identifier
+            <ul style="list-style-type: square;">
+              <li>User uid.</li>
+               <li>User uid.</li>
+            </ul>
+          </li>
+          <li>Pointer to strut files_struct</li>
+          <li>Scheduling policy</li>
+        </ol>
+        <br>
+        <h4 style="display: inline;">&diams;&nbsp;<span style="text-decoration: underline;">fork()</span> &#8722; </h4> man fork
+        <br><br>
+        <p style="text-indent: 0px; margin: 0px;">NAME</p>
+        <p style="margin: 0px;">fork - create a child process</p>
+        <p style="text-indent: 0px; margin: 0px;">SYNOPSIS</p>
+        <p style="margin: 0px;">#include&lt;unistd.h&gt;</p>
+        <p style="margin: 0 15 0 0;">Pid_t fork(void);</p>
+        <p style="text-indent: 0px; margin: 0px;">DESCRIPTION</p>
+
+        <p style="margin: 0px;">fork()  creates  a  new  process  by  duplicating the calling process.  The new process is referred to as the child process.  The calling process is referred to as the parent process.</p><p style="margin: 0 15 0 0;">The child process and the parent process run in separate memory spaces.  At the time of fork() both memory spaces have the same content.  Memory writes, file mappings (mmap(2)),  and  unmappings  (munmap(2)) performed by one of the processes do not affect the other.</p>
+
+        <p style="text-indent: 0px; font-style: italic;">The child process is an exact duplicate of the parent process except for the following points :-</p>
+
+        <ul class="fork" style="list-style-type: square; ">
+          <li>The child has its own unique process ID, and this PID does not match the ID of any existing process group (setpgid(2)).</li>
+          <li>The child's parent process ID is the same as the parent's process ID.</li>
+          <li>The child does not inherit its parent’s memory locks (mlock(2),  mlock‐ all(2)).</li>
+          <li>Process   resource   utilizations   (getrusage(2))  and  CPU  time  counters (times(2)) are reset to zero in the child.</li>
+          <li>The child's set of pending signals is initially empty (sigpending(2)).</li>
+          <li>The child does not inherit semaphore adjustments from its parent (semop(2)).</li>
+          <li>The child does not inherit process-associated record locks from its parent (fcntl(2)).  (On the other hand, it does inherit fcntl(2) open file description locks and flock(2) locks from its parent.)</li>
+        </ul>
+        <p style="text-indent: 0px;">RETURN VALUE</p>
+        <p>On success, the PID of the child process is returned in the parent, and 0 is returned in the child. On failure, -1 is returned in the parent, no child process is created, and errno is set appropriately.</p>
+        <h5>Example -->> </h5>
+<div class="code">
+<div class="row">
+<div class="col-sm-6">
+<pre><code>(1) #include<stdio.h>
+    #include<unistd.h>
+    int main()
+    {
+      fork();
+      printf("hello\n");   
+      return 0;
+    }
+    Output -- hello
+              Hello
+      </code></pre>
+      </div>
+      <div class="col-sm-6">
+<pre><code>(2) #include<stdio.h>
+    #include<unistd.h>
+    int main()
+    {
+      fork();
+      fork();
+      printf("hello\n");   
+      return 0;
+    }
+    Output -- hello
+              hello
+              hello
+              hello
+</code></pre>
+</div>
+</div>
+
+<hr class="code_hr">
+
+<div class="row">
+<div class="col-sm-6">
+<pre><code>(3) #include<stdio.h>
+    #include<unistd.h>
+    int main()
+    { 
+      fork();
+      fork();
+      fork();
+      printf("hello\n");   
+      return 0;
+    }
+    Output -- hello
+              hello
+              hello
+              hello
+              hello
+              hello
+              hello
+              hello
+    7 child 1 parent.
+</code></pre>
+</div>
+<div class="col-sm-6">
+<pre><code>(4) #include<stdio.h>
+    #include<unistd.h>
+    int main()
+    {
+      printf("hello\n");    
+      fork(); 
+      fork();   
+      return 0;
+    }
+    output – hello
+</code></pre>
+</div>
+</div>
+<hr class="code_hr">
+
+<div class="row">
+<div class="col-sm-6">
+<pre><code>(5) #include<stdio.h>
+    #include<unistd.h>
+    int main()
+    {
+      int i;
+      for(i=0 ; i<2 ; i++)
+      {
+        fork(); 
+        printf("hello\n");     
+      }
+      return 0;
+    }
+    Output -- hello
+              hello
+              hello
+              hello
+              hello
+              hello
+
+</code></pre>
+</div>
+<div class="col-sm-6">
+<pre><code>(6) #include<stdio.h>
+        #include<unistd.h>
+        int main()
+        {
+          printf("hi\n");
+          fork(); 
+          printf("hello\n");     
+          
+          return 0;
+        }
+        output -- hi
+                  hello
+                  hello
+</code></pre>
+</div>
+</div>
+</div>
+<br>
+<hr class="code_hr">
+<br>
+
+<h4 style="display: inline;">&diams;&nbsp;<span style="text-decoration: underline;">getpid() and getppid() </span> &#8722; </h4> man 2 getpid
+        <br><br>
+<p style="text-indent: 0px; margin: 0px;">NAME</p>
+        <p style="margin: 0px;">getpid, getppid - get process identification</p>
+        <p style="text-indent: 0px; margin: 0px;">SYNOPSIS</p>
+        <p style="margin: 0px;">#include&lt;sys/types.h&gt;</p>
+        <p style="margin: 0px;">#include&lt;unistd.h&gt;</p>
+        <p style="text-indent: 80px; margin: 0 0 0 0;">pid_t getpid(void);</p>
+        <p style="text-indent: 80px; margin: 0 15 0 0;">pid_t getppid(void);</p>
+
+        <p style="text-indent: 0px; margin: 0px;">DESCRIPTION</p>
+        <p style="margin: 0px;">getpid()  returns  the process ID of the calling process. (This is often used by routines that generate unique temporary filenames.)  getppid()   returns the process ID of the parent of the calling process.</p>
+
+        <p style="text-indent: 0px; margin: 15 0 0 0;">ERRORS</p>
+        <p>These functions are always successful.</p>
+        
+        <h4 style="display: inline;">&diams;&nbsp;<span style="text-decoration: underline;">system()</span> &#8722; </h4> man system
+        <br><br>
+        <p style="text-indent: 0px; margin: 0px;">NAME</p>
+        <p style="margin: 0px;">system - execute a shell command</p>
+        <p style="text-indent: 0px; margin: 0px;">SYNOPSIS</p>
+        <p style="margin: 0px;">#include&lt;stdlib.h&gt;</p>
+        <p style="margin: 0 15 0 0;">int system(const char *command);</p>
+        
+        <p style="text-indent: 0px; margin: 0px;">DESCRIPTION<unistd.h>
+        <p style="margin: 0px;">The  system() library function uses fork(2) to create a child process that executes the shell command specified in command using execl (3) as follows:</p>
+        <p style="margin: 0px;">execl("/bin/sh", "sh", "-c", command, (char *) 0);</p>
+        <p style="margin: 0px;">system() returns after the command has been completed.</p>
+     <br>
+       <h5>Example -->> </h5>
+<div class="code">
+<pre><code>  (1) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+        int main()
+        {
+          printf("PID : %d\n",getpid());
+          system("ps");
+          printf("PPID : %d\n",getppid());     
+          return 0;
+        }
+        output -->> PID : 5224
+            PID TTY          TIME CMD
+          2359 pts/3    00:00:00 bash
+          5224 pts/3    00:00:00 a.out
+          5225 pts/3    00:00:00 sh
+          5226 pts/3    00:00:00 ps
+          PPID : 2359
+
+<p>getpid gives the  ID of a.out process and getppid gives the ID of bash which is th parent of a.out process. system() -->> used to print the commands output (ps,ls etc) on console.</p>
+
+      </code></pre>
+<pre><code>  (2) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+        int main()
+        {
+        system("ps");
+        int pid = fork();
+        switch(pid)
+        {
+          case 1: perror("error");
+                  break;
+          case 0: printf("child process\n");
+                  printf("child PID : %d\n",getpid());
+                  printf("child PPID : %d\n",getppid());
+                  break;
+          default: printf("parent process\n");
+                   printf("parent PID : %d\n",getpid());
+                   printf("parent PPID : %d\n",getppid());
+          }
+        return 0;
+        }
+        output-->>  PID TTY          TIME CMD
+          2359 pts/3    00:00:00 bash
+          6061 pts/3    00:00:00 a.out
+          6062 pts/3    00:00:00 sh
+          6063 pts/3    00:00:00 ps
+          parent process
+          parent PID : 6061
+          parent PPID : 2359
+          child process
+          child PID : 6064
+          child PPID : 6061
+<p>Here parent and child processes are execute simultaneously. The child process PID is new ID. The child PPID may br PID of a.out or init PID(1). The parent PID is PID of a.out and parent PPID is PID of bash.</p>
+</code></pre>
+</div>
+<br>
+<p style="text-indent: 0px;">In fork there are 2 state: Orphan State and Zombie State</p>
+      
+<h4><span style="text-decoration: underline;">Orphan State</span> &#8722; </h4> <p>Sometimes the parent process is terminated before its child terminates. In this case the child is considered to be an orphan process. This is called Orphan Stated. At this point the init process adopts child process and init's ID becomes the new PPID (parents process ID) of the child process. In order to avoid the child become an orphan, take the parent process in sleep mode for some time. Since both the parent and child processes execute simultaneously, if control comes to parent, it will go sleep for some time hence in this time control will go    child process and execute. So in this way child will never become orphan. So PPID will be PID of a.out.
+<br><br>
+Default: sleep (2)
+         <ul style="list-style-type: none;">
+           <li>pf</li>
+           <li>pf</li>
+           <li>pf</li>
+         </ul>
+</p>
+<div class="code">
+<pre><code>  (1) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+        int main()
+        {
+          system("ps");
+          int pid = fork();
+          switch(pid)
+          {
+          case-1: perror("error");
+            break;
+          case 0: printf("child process\n");
+            printf("child PID : %d\n",getpid());
+            printf("child PPID : %d\n",getppid());
+            break;
+                    default : sleep(2);
+            printf("parent process\n");
+            printf("parent PID : %d\n",getpid());
+            printf("parent PPID : %d\n",getppid());
+          }
+          return 0;
+        }
+
+    output--> PID TTY          TIME CMD
+        2190 pts/6    00:00:00 bash
+        2207 pts/6    00:00:00 a.out
+        2208 pts/6    00:00:00 sh
+        2209 pts/6    00:00:00 ps
+        child process
+        child PID : 2210
+        child PPID : 2207
+        parent process
+        parent PID : 2207
+        parent PPID : 2190  
+<p>If in case 0: sleep(2) then child will become orphan because control will go parent and gets executed and terminated. Then it will go to child.</p>
+      </code></pre>
+
+<pre><code>  (2) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+        int main()
+        {
+          system("ps");
+          int pid = fork();
+          switch(pid)
+          {
+          case-1: perror("error");
+            break;
+          case 0: sleep(2);
+            printf("child process\n");
+            printf("child PID : %d\n",getpid());
+            printf("child PPID : %d\n",getppid());
+            break;
+              default : printf("parent process\n");
+            printf("parent PID : %d\n",getpid());
+            printf("parent PPID : %d\n",getppid());
+            }
+          return 0;
+        }
+
+    output -->  PID TTY          TIME CMD
+        2190 pts/6    00:00:00 bash
+        2257 pts/6    00:00:00 a.out
+        2258 pts/6    00:00:00 sh
+        2259 pts/6    00:00:00 ps
+        parent process
+        parent PID : 2257
+        parent PPID : 2190
+        child process
+        child PID : 2260
+        child PPID : 1109
+<p>Here the child PPID is equal to the parent PPID because the child process is orphan process.</p>
+</code></pre>
+</div>
+ <br>
+<h4><span style="text-decoration: underline;">Zombie State </span> &#8722; </h4> <p style="margin: 15 0 0 0">Sometime the child get executed and ready to give its exit value to the parent but parent is not taking because parent is busy with some other work. This state is called Zombie State. Wastage of memory.<br>
+Type: ps -l<br>
+S gives the state then s-sleeping, r-running, z-zombie state
+To make it in Zombie state: give default: sleep(30) and run program in background: ./a.out &<br>
+Type: ps -el|grep -i "z" to see the zombie processes
+</p>
+<br>
+<div class="code">
+<pre><code>  (1) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+        int main()
+        {
+          system("ps");
+          int pid = fork();
+          switch(pid)
+          {
+            case-1: perror("error");
+              break;
+            case 0: printf("child process\n");
+              printf("child PID : %d\n",getpid());
+              printf("child PPID : %d\n",getppid());
+              break;
+                    default : sleep(30);
+                 printf("parent process\n");
+                 printf("parent PID : %d\n",getpid());
+                 printf("parent PPID : %d\n",getppid());
+            }
+          return 0;
+        }
+      </code></pre>
+
+<pre><code>Question – Print the even no with child processes and odd numbers with            parent processes?
+Ans –   
+    #include<stdio.h>
+    #include<unistd.h>
+    #include <stdlib.h>
+      int main()
+      {
+        int i;
+        int pid = fork();
+  switch (pid)
+        {
+          case-1: perror("error");
+            break;
+          case 0: printf("\nChild process: ");
+            for(i=2 ; i<10 ; i=i+2)
+            {
+              printf("%d\t",i);
+            }
+            break;
+                    default : printf("\nparent process : ");
+               for(i=1 ; i<10 ; i=i+2)
+                {
+              printf("%d\t",i);
+               }  
+          }
+        printf("\n"); 
+        return 0;
+      }
+  output -->  parent process: 1 3 5 7 9 
+      Child process: 2  4 6 8     
+  <p>Instead of sleep(2) we can give wait(0). wait(0) keeps track the child process and when child get executed, parent process gets execute. So wastage to time (with sleep) is prevented. By default child process exit status given to parent is used by wait(0).<br> 
+  WIFEXITED(status) -- Return true if child process terminated normally.<br>
+  WEXITSTATUS(status) -- Returns  the  exit  status  of  the child.</p>
+</code></pre>
+</div>
+<br>
+<h4 style="display: inline;">&diams;&nbsp;<span style="text-decoration: underline;">wait(0)</span> &#8722; </h4> man system
+        <br><br>
+        <p style="text-indent: 0px; margin: 0px;">NAME</p>
+        <p style="margin: 0px;">wait, waitpid, waitid - wait for process to change state</p>
+        <p style="text-indent: 0px; margin: 0px;">SYNOPSIS</p>
+        <p style="margin: 0px;">#include&lt;sys/types.h&gt;</p>
+        <p style="margin: 0px;">#include&lt;sys/wait.h&gt;</p>
+        <p style="margin: 0px;">pid_t wait(int *status);</p>
+        <p style="margin: 0px;">pid_t waitpid(pid_t pid, int *status, int options);</p>
+        <p style="margin: 0 15 0 0;">int waitid(idtype_t idtype, id_t id, siginfo_t *infop, int options);</p>
+        <p>/* This is the glibc and POSIX interface; see NOTES for information on the raw system call. */</p>
+
+        <p style="text-indent: 0px; margin: 0px;">DESCRIPTION<unistd.h>
+        <p style="margin: 0px;">All of these system calls are used to wait for state changes in a child of the calling process, and obtain information about the child whose state has changed. A state change is considered to be: the child terminated, the child was stopped by a signal, or the child was resumed byn A signal. In the case of a terminated child, performing a wait allows the system to release the resources associated with the child; if a wait is not performed, then the terminated child remains in a “zombie" state (see NOTES below). If a child has already changed state, then these calls return immediately. Otherwise, they block until either a child changes state.</p>
+        <p style="margin: 0px;">execl("/bin/sh", "sh", "-c", command, (char *) 0);</p>
+        <p style="margin: 0px;">system() returns after the command has been completed.</p>
+       <br>
+        <p style="text-indent: 0px; margin: 0px;"><strong>wait() and waitpid()</strong></p>
+        <p style="margin: 0px;">The  wait() system call suspends execution of the calling process until one of its children terminates.The call wait(&status) is equivalent to: <br> &nbsp;&nbsp;&nbsp;waitpid(-1, &status, 0);
+        <br>
+        The waitpid() system callsuspends execution of the calling process until a child specified by pid argument has changed state. By default, waitpid() waits only for terminated children, but this behavior is modifiable via the options argument, as described below.</p>
+        <br>
+        <p style="text-indent: 0px;"><strong>The value of pid can be:</strong>
+        <ul>
+          <li>< -1 &nbsp;meaning wait for any child process whose process group ID is equal to the absolute value of pid.</li>
+          <li>-1 &nbsp;meaning wait for any child process.</li>
+          <li>&nbsp;0 &nbsp;meaning wait for any child process whose process group ID is equal to that of the calling process.</li>
+          <li>> 0 &nbsp;meaning wait for the child whose process ID is equal to the value of pid.</li>
+        </ul>
+</p>
+<p style="text-indent: 0px; margin: 0px;"><strong>WIFEXITED(status)</strong></p><p>Returns true if the child terminated normally, that is, by calling exit(3) or _exit(2), or by returning from main().</p>
+<p style="text-indent: 0px; margin: 0px;"><strong>WEXITSTATUS(status)</strong></p><p>Returns the exit status of the child. This consists of the least significant 8 bits of the status argument that the child specified in a call to exit(3) or _exit(2) or as the argument for a return statement in main().  This macro should be employed only if WIFEXITED returned true.</p>
+<p style="text-indent: 0px; margin: 0px;"><strong>WIFSIGNALED(status)</strong></p><p>Returns true if the child process was terminated by a signal.</p>
+
+<p style="text-indent: 0px;">RETURN VALUE</p>
+<p style="text-indent: 0px; margin: 0px;">
+wait() :-<p>on success, returns the process ID of the terminated child; on error, -1 is returned.</p>
+waitpid() :-<p>on success, returns the process ID of the child whose  state has changed; if WNOHANG was specified and one or more child(ren)specified by PID exist, but have not yet changed state, then 0 is returned. On error, -1 is returned.</p>
+waitid() :-<p>returns  0  on  success  or  if WNOHANG was specified and no child(ren) specified by id has yet  changed  state;  on  error,  -1  is returned </p>
+</p>
+<p style="text-indent: 0px;">Each of these calls sets errno to an appropriate value in the case of an error.</p>
+<br>
+<h5>Example -->> </h5>
+<div class="code">
+<pre><code>  (1) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+      #include <sys/types.h>
+      #include <sys/wait.h>
+        int main()
+        {
+          int status;
+          int pid = fork();
+          switch(pid)
+          {
+          case-1: perror("error");
+            break;
+          case 0: printf("child process\n");
+            break;
+                    default : wait(&status);
+            printf("parent process\n");
+            if(WIFEXITED(status))
+              printf("exited with status : %d\n",WEXITSTATUS(status));
+            else
+              printf("abnormal\n");
+            }
+          return 0;
+        }
+    output -->>   child process
+        parent process
+        exited with status : 0
+      </code></pre>
+<pre><code>  (2) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+      #include <sys/types.h>
+      #include <sys/wait.h>
+        int main()
+        {
+          fork();
+          if(wait(0)==-1)
+          printf("hii\n");  
+          return 0;
+        }
+
+    output-->> hii
+</code></pre>
+<pre><code>  (3) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+      #include <sys/types.h>
+      #include <sys/wait.h>
+        int main()
+        {
+          fork();
+          fork();
+          if(wait(0)==-1)
+          printf("hii\n");  
+          return 0;
+        }
+    Output-->> hii
+              hii
+
+</code></pre>
+<pre><code>  (4) #include<stdio.h>
+      #include<unistd.h>
+      #include <stdlib.h>
+      #include <sys/types.h>
+      #include <sys/wait.h>
+        int main()
+        { int i;
+          for(i=0 ; i<2 ;i++)
+          {
+            fork();
+            if(wait(0)==-1)
+            printf("hii\n");  
+          }
+          return 0;
+        }
+
+    Output-->> hii
+            hii
+            hii
+
+</code></pre>
+<pre><code>  (5) #include<stdio.h>
+      #include<unistd.h>
+      #include <sys/types.h>
+        int main()
+        { 
+          int a=10;
+          int pid = fork();
+          switch(pid)
+          {
+            case -1:perror("Error\n");
+              break;
+            case 0: a++; 
+              printf("%d\n",a);
+              break;
+            default : a--;
+                printf("%d\n",a);
+          }
+          return 0;
+        }
+
+    Output-->> 9
+             11 
+
+<p style="text-indent: 0px;">Here two process: child and parent both share the same code segment but other memory such as data segment, heap and stack are not shared. So that a=10 (for local and global) is different for child and parent, that's why child increment the value of a by 1 (a=11) and parent decrement its own value of a by 1 (a=9). But in current day implementation of fork, the data and stack segment will be shared by parent and child processes unless there is no modification done by either of the process, which is monitored by a software bit called COW bit (copy on write). This helps to manage the memory more efficiently.</p>
+</code></pre>
+</div>                
+<br>
+<h4 style="display: inline;">&diams;&nbsp;<span style="text-decoration: underline;">vfork()</span> &#8722; </h4> man 2 vfork <br><br>
+<p style="margin: 15 0 0 0">In vfork function both child and parent processes are share memory section totally. Both have same memory address but here child process executed 1st always. In order to transfer control to parent, we have to explicitly terminate child by giving exit(0) in case 0.</p>
+
+<h5>Example-->></h5>
+<div class="code">
+  <pre><code>    #include<stdio.h>
+    #include <stdlib.h>
+    #include<unistd.h>
+    #include <sys/types.h>
+    int main()
+    { 
+      int a=10;
+      int pid = vfork();
+      switch(pid)
+      {
+        case -1:perror("Error\n");
+          break;
+        case 0: a++; 
+          printf("%d\n",a);
+          exit(0);
+          break;
+        default : a--;
+            printf("%d\n",a);
+      }
+      return 0;
+    }
+Output-->> 11
+          10
+<p>Here both child and parent are share the all memory so a is incremented by child by 1 and then it is decremented by parent by 1.5</p>
+      </code></pre>
+</div>
+<br>
+<h4><span style="text-decoration: underline;">system()</span> -->> </h4><p>It is not a system call. It is a function call, which is define in library. This is used to execute the command in system programing. This execute the execute the shell cammond by calling /bin/sh -c command.</p>
+ <p style="text-indent: 0px;">Inorder to execute the any library function under any tytpe of shell we have to use execl lybrary function.</p>
+
+<h4 style="display: inline;">&diams;&nbsp;<span style="text-decoration: underline;">execl()</span> &#8722; </h4> man execl 
+<br><br>
+        <p style="text-indent: 0px; margin: 0px;">NAME</p>
+        <p style="margin: 0px;">execl, execlp, execle, execv, execvp, execvpe - execute a file</p>
+
+        <p style="text-indent: 0px; margin: 0px;">SYNOPSIS</p>
+        <p style="margin: 0px;">#include <unistd.h></p>
+        <p style="margin: 0px;">extern char **environ;</p>
+        <p style="margin: 0px;">int execl(const char *path, const char *arg, .../* (char  *) NULL */);</p>
+        <p style="margin: 0px;">int execlp(const char *file, const char *arg, .../* (char  *) NULL */);</p>
+        <p style="margin: 0px;">int execle(const char *path, const char *arg, .../*, (char *) NULL, char * const envp[] */);</p>
+        <p style="margin: 0px;">int execv(const char *path, char *const argv[]);</p>
+        <p style="margin: 0px;">int execvp(const char *file, char *const argv[]);</p>
+        <p style="margin: 0px;">int execvpe(const char *file, char *const argv[],char *const envp[]);</p>
+        <p>Feature Test Macro Requirements for glibc (see feature_test_macros(7)):</p>
+        <p style="margin: 0px;">execvpe(): _GNU_SOURCE</p>
+        <br>
+        <p style="text-indent: 0px; margin: 0px;">DESCRIPTION<unistd.h>
+        <p style="margin: 0px;">The exec() family of functions replaces the current process image with a new process image. The functions described in this manual page are front-ends for execve(2). (See the manual page for execve(2) for further details about the replacement  of  the  current process image.) The initial argument for these functions is the name of a file that is to be executed. The const char *arg and subsequent ellipses in the execl(), execlp(), and execle() functions can be thought of as arg0, arg1, ..., argn.  Together they describe a list of one or more pointers to null-terminated strings that represent the argument list available to the executed program. The first argument, by convention, should point to the filename associated with the file being executed. The list of arguments must be terminated by a null pointer, and, since these are variadic functions, this pointer must be cast (char *) NULL.</p>
+        <br>
+        <p style="text-indent: 0px; margin: 0px;">RETURN VALUE<unistd.h>
+        <p style="margin: 0px;">The exec() functions return only if an error has occurred. The return value is -1, and errno is set to indicate the error.</p>
+
+    <h5>Example-->></h5>
+<div class="code">
+  <pre><code>    #include<stdio.h>
+        #include <stdlib.h>
+        #include<unistd.h>
+        #include <sys/types.h>
+          int main()
+          { 
+            printf("printing ps\n");
+            execl("/bin/ps","ps",NULL);
+            printf("cpmpleted\n");
+            return 0;
+          }
+      Output-->>  printing ps
+            PID TTY          TIME CMD
+          6446 pts/11   00:00:00 bash
+          6479 pts/11   00:00:00 ps
+      </code></pre>
+</div>
+<br>
+      
+
+<h5>Drawback-->></h5><p>Once the execl get successfully executed the main program gets terminated. So the line below execl() function wont get executed. (In the above program completed is not printing). If \n is not given in printf("printing ps\n") then this statement also not printed because the main program will terminated after soon execl executed.</p>
+
+<div class="code">
+  <pre><code> <h4> &bull; int execlp(const char *file , arg , ...) &minus;</h4>    #include<stdio.h>
+    #include <stdlib.h>
+    #include<unistd.h>
+    #include <sys/types.h>
+      int main()
+      { 
+        printf("printing ps -el");
+        execlp("ps","ps","-e","-l",NULL);
+        printf("cpmpleted\n");
+        return 0;
+      }
+
+<p>If NULL is removed, we get a warning and dont get output. NULL is used to specify that it is end of argument.</p>
+<h4> &bull; int execv(path , argv[]) &minus;</h4>    #include<stdio.h>
+    #include <stdlib.h>
+    #include<unistd.h>
+    #include <sys/types.h>
+      int main()
+      { 
+        int *a[] = {"ps",NULL};
+        printf("printing ps -el");
+        execv("/bin/ps",a);
+        printf("completed\n");
+        return 0;
+      }
+      </code></pre>
+</div>
+<br>
+<h4>&diams;&nbsp;<span style="text-decoration: underline;">dup()</span> &#8722; </h4><p> man 2 dup  &nbsp;&nbsp;&nbsp;&nbsp;(Duplicate a file descriptor) On the success this system call return the new file descriptor. It uses lowest numbered unused descriptor for the new descriptor.</p>
+<br>
+        <p style="text-indent: 0px; margin: 0px;">NAME</p>
+        <p style="margin: 0 15 0 0;">dup, dup2, dup3 - duplicate a file descriptor</p>
+
+        <p style="text-indent: 0px; margin: 0px;">SYNOPSIS</p>
+        <p style="margin: 0px;">#include <unistd.h></p>
+        <p style="margin: 0px;">int dup(int oldfd);</p><br>
+        <p style="margin: 0px;">int dup2(int oldfd, int newfd);</p>
+        <p style="margin: 0px;">#define _GNU_SOURCE &nbsp;&nbsp;&nbsp;&nbsp;/* See feature_test_macros(7) */</p>
+        <p style="margin: 0px;">#include &lt;fcntl.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;/* Obtain O_* constant definitions */</p>
+        <p style="margin: 0px;">#include &lt;unistd.h&gt;</p>   
+        <p>int dup3(int oldfd, int newfd, int flags);</p>
+        <br>
+
+        <p style="text-indent: 0px; margin: 0px;">DESCRIPTION<unistd.h>
+        <p style="margin: 0px;">The  dup()  system  call  creates  a copy of the file descriptor old fd, using the lowest-numbered unused descriptor for the new descriptor. After a successful return, the old and new file descriptors may be used interchangeably.</p>
+        <br>
+        <h4>&diams;&nbsp;<span style="text-decoration: underline;">dup2()</span> &#8722;</h4><p>The dup2() system call performs the same task as dup(), but instead  of using  the lowest-numbered unused file descriptor, it uses the descriptor number specified in new fd.  If the descriptor new fd was previously open, it is silently closed before being reused.</p>
+        <p style="text-indent: 0px; margin: 0px;">RETURN VALUE<unistd.h>
+        <p style="margin: 0px;">On success, these system calls return the new descriptor.  On error, -1 is returned, and errno is set appropriately.</p>
+    
+        <h5>Example-->></h5>
+<div class="code">
+  <pre><code>    (1) #include<stdio.h>
+        #include <stdlib.h>
+        #include<unistd.h>
+        #include <sys/types.h>
+        #include <sys/stat.h>
+        #include <fcntl.h>
+          int main()
+          { 
+            char buf[20];
+            int fd = open("myfile",O_RDONLY);
+            if(fd==-1)
+              perror("error\n");
+            else
+              printf("fd : %d\n",fd);
+              int dupfd = dup(fd);
+              printf("dupfd : %d\n",dupfd);
+              read(dupfd,buf,sizeof(buf));
+              printf("content : %s\n",buf);
+            return 0;
+          }
+        Output-->> fd: 3
+                 dupfd: 4
+                 content : hello
+      </code></pre>
+      <pre><code>    (2) #include<stdio.h>
+        #include <stdlib.h>
+        #include<unistd.h>
+        #include <sys/types.h>
+        #include <sys/stat.h>
+        #include <fcntl.h>
+          int main()
+          { 
+            char buf[20];
+            int fd = open("myfile",O_RDONLY);
+            if(fd==-1)
+              perror("error\n");
+            else
+              printf("fd : %d\n",fd);
+              int dupfd = dup2(fd,0);
+              printf("dupfd : %d\n",dupfd);
+              read(dupfd,buf,sizeof(buf));
+              printf("content : %s\n",buf);
+            return 0;
+          }
+        Output-->> fd: 3
+                 dupfd: 0
+                 content: hello
+      </code></pre>
+</div>
+          <br></br>
+
+           <div>
+              <h4>Leave a Comment:</h4>
+                 <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+                  {{ vm.error }}
+                  </div>
+         
+              <form  role="form" name="vm.linux_commentForm" ng-submit="vm.add_Linux_Comment()">
+                <div class="form-group">
+                  <textarea class=" form form-control" rows="3" required name="linux_comment" required ng-model="vm.linux_comment"></textarea>
+                </div>
+                <button type="submit" class="btn send pull-left" style="outline: none;">Submit</button>
+              </form>
+
+        <div class="Comment" style="padding-top: 80px;">
+
+              <ul class="comment_list">
+               <li class="name" ng-repeat="linux_comment in vm.linux_tutorial.linux_comments">
+              <div class="row">
+                <div class="col-sm-2 text-center">
+                  <img src="images/comment.png" class="img-circle" height="65" width="65" alt="Avatar">
+                </div>
+                <div class="col-sm-10">
+                  <h4>{{ linux_comment.name}}  <small> &#8226 {{linux_comment.createdOn | date:'MMM d, y h:mm a' }}</small></h4>
+                  <p>{{ linux_comment.linux_comment }}</p>   
+                  <br>
+                </div>
+                </li>
+        </ul>
+        </div>
+        </div>
+            </div> 
+          </div>
+          
+          </div>
+          
+          <div id="sidebar" >     
+            <div class="container-fuild" class="scroll"> 
+              <div class="input-group">
+                <input id="textbox"  class="form-control input_search" type="text" placeholder="Search on Google...">
+                <span class="input-group-btn">
+                <a class=" btn search" type="button" style="outline: none;" id="googleLink" href="notrequired" onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);">
+                    <span class="glyphicon glyphicon-search"  style="color: black"></span>
+                </a>
+                </span>
+              </div>
+              <div class="scroll">
+
+                <h3 style="padding-left: 7px"> Contents</h3>
+                  <ul class="fa-ul">
+                      <h4>&#9830 Devops</h4>
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/continuous_integration/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/configuration_management/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/distributed_version_control/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+                              
+                      <h4>&#9830 Linux</h4>
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/linux_os/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/file_subsystem_managament/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/process_management_subsystem/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+                    </ul>
+                  
+                </div>
+            </div>
+          
+          </div>
+           
+        </body>
+

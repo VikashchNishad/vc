@@ -1,0 +1,325 @@
+
+<head>
+  
+  <style>
+    
+        body { 
+          font-family: 'Quicksand', sans-serif;
+              font-size: 16px;
+            background: #eee;
+         }
+        #page-wrap {  margin: 15px auto; position: relative; }
+        p { margin: 0 0 15px 0; text-indent: 50px;}
+        #main { width: 750px; float: left; background: white; padding: 70px 17px 17px 17px; margin-left: 35px;}
+        #sidebar div { padding: 10px; background: white;  }
+        #sidebar { width: 400px; position: fixed; left: 62%; top: 120px; margin-left:  75px; }
+ 
+        #page-wrap strong{
+          font-family: 'Quicksand', sans-serif;
+        }
+        ul.fa-ul li {
+           margin-left: 20px;
+            padding: 1px;
+        }
+
+          ul.fa-ul> li > a,
+          ul.fa-ul > li > a:focus {
+            z-index: 9999;
+            
+          }
+
+          ul.fa-ul > li.active > a,
+          ul.fa-ul > li.active > a:focus {
+           text-decoration: underline;
+            color: #F05F40 !important;
+          }
+
+          ul.fa-ul > li > a:hover,
+          ul.fa-ul > li > a:focus:hover {
+            opacity: 1;
+            text-decoration: underline;
+            filter: alpha(opacity=100);
+             transition: all 02s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+                }
+          ul.fa-ul li a:active,
+          ul.fa-ul  li a:focus {
+          text-decoration: underline;
+           opacity: 1;
+          filter: alpha(opacity=100);
+        }
+ 
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+  }
+
+.form {
+  border-color: rgba(240, 95, 64, 0.6);
+}
+
+.form:hover {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .form:focus {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .send {
+      color: rgba(240, 95, 64, 1.0);
+          border-color: rgba(240, 95, 64, 1.0);
+          padding: 7px 17px;
+          text-transform: uppercase;
+    }
+    .send:hover {
+       background-color: rgba(240, 95, 64, 0.9);
+          color: #FFFFFF;
+    }
+  
+    .send:focus {
+       background-color: rgba(240, 95, 64, 0.9);
+       border-color: rgba(240, 95, 64, 1.0);
+          color: #FFFFFF;
+    }
+  ul {
+    font-family: 'Lato', sans-serif;
+  }
+     ul.comment_list {
+      transform: rotate(180deg);
+      }
+  ul.comment_list > li {
+      transform: rotate(-180deg);
+    }
+
+
+  li.name {
+    list-style-type: none;
+  }
+    .name h4 {
+      color: rgba(240, 95, 64, 1.0);
+    }
+    .name h4 small{
+      color: rgba(240, 95, 64, 0.9);
+    }
+   .input_search {
+        border-color: rgba(240, 95, 64, 0.6);
+    }
+    .input_search:focus {
+         border: 1px solid rgba(240, 95, 64, 1.0);
+    }
+    .search{
+        border-color: rgba(240, 95, 64, 0.7);
+    }
+    .search:hover {
+        background-color: rgba(240, 95, 64, 0.7);
+    }
+    
+  
+   ol.post_code_list li {
+    list-style-type: upper-roman;
+    padding: 2px;
+    margin-left: 50px;
+   }
+
+
+    div.scroll {
+    background-color: #00FFFF;
+    height: 511px;
+    overflow: scroll;
+    }
+    a{
+          font-family: 'Quicksand', sans-serif;
+          -webkit-transition: all 0.35s;
+          -moz-transition: all 0.35s;
+          transition: all 0.35s;
+          color: #F05F40;
+          font-size: 15px;
+          }
+
+
+    </style>
+
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+  <div id="page-wrap">
+      
+    <div id="main">
+         <h1 style="text-align: center;">Linux OS</h1>
+         <hr>
+         <br>
+         
+         <p>Linux is the best-known and most-used open source operating system. As an operating system, Linux is software that sits underneath all of the other software on a computer, receiving requests from those programs and relaying these requests to the computer’s hardware. Linux like operating system hides all low level details like physical organization of the computer from application run by user. When a user wants to make use of the hardware resources, it must make a request to the OS. The kernel evaluates the request and checks the validity of the request and then interacts with hardware component on behalf of the user program.</p>
+<h3><span style="text-decoration: underline">The CPU work in two modes</span> :</h3>
+  <ul>
+    <li><strong>Non-privileged mode or user mode –</strong><p>In this mode the user can access a well-defined process address Space of the currently running process. If the CPU attempt to access the memory location outside currently running process’s address space leads it to segmentation fault. This access check is done by the memory management unit (MMU).
+</p></li>
+    <li><strong>Privileged mode or Kennel mode –</strong><p>kernel mode the CPU allowed to access the whole memory without Access checks by the MMU. 
+</p> </li>
+    </ul>
+    <p>The user program who wants to communicate with the hardware sends a request to the kernel through a set of interfaces called system call. System call is function which is use to make a request to kernel for  make the use of hardware, and this request is made via software interrupt called trap</p>
+    
+    <p>When user mode process invoked the system call. The CPU switches to the kernel mode and starts the execution of the system call routine. In Linux, a system call must be invoked by the non-makeable interrupt trap. The kernel implements the many different system call, so it identifies the system call using table of system call number from the eax register. After that it checks the number of parameters, valid parameter, error, hardware problem etc. If kernel got any error or lack of available resources then it terminate the request and there is no error in the execution of system call, return value store in general purpose register r0 and r1.</p>
+    <br>
+      <h3><span style="text-decoration: underline">Type of Kernel</span> :</h3>
+      <br>
+       <ul>
+         <li><h4>Monolithic Kernel – </h4><p>In monolithic kernel architecture, all the modules e.g. process management, file Management, memory management, I/O management, interrupt handling, network management etc. are present in the kernel and they are interconnected to each other. Advantage of this kernel is that it has less number of mode switching. Means it does not need to switch from one mode to another mode every time. But it has some disadvantage like, big kernel size, lack of extensibility, maintenance is not easy. In the case of bug fixing or addition of new feature kernel need to recompile and it takes lots of memory for execution.
+         </p>
+          <img src="/images/Linux/linux_os1.jpg" style="width: 650px;">
+         </li>
+
+         <li><h4>Micro Kernel  – </h4><p>In Micro kernel architecture some imported modules such as memory management, Multitasking and Inter process communication are implemented in the kernel and other services like file subsystem, process scheduler and networking are implemented in user space. Advantage of this kernel is that it is easy to maintain than the monolithic kernels, less size. In the case of bug fixing and a new feature addition, no need to recompile the kernel.  But disadvantage is large number of system call and mode switch will slow down the system.
+         </p>
+          <img src="/images/Linux/linux_os2.gif" style="width: 650px;">
+         </li>
+       </ul>
+       <br><br>
+       There are three major components in Linux kernel architecture, File subsystem, network subsystem, process control subsystem :-
+       <br>
+       <ol>
+         <li ><h4>File subsystem – </h4><p>The file subsystem manages file system, allocating file space, free space, controlling Access to file and receiving data for user.  FSS access file’s using buffering mechanism that regulates data between kernel and secondary storage. The buffering mechanism interacts with the I/O device drivers to initiate data transfer to and from the kernel. The Device drivers are the kernel modules the controls the operation of peripheral devices.
+        </p></li>
+         <li ><h4>Network Subsystem – </h4><p>The network subsystem uses sockets to stabilised the connection between kernel And I/O devices. The sockets acts as the agent between user applications, file interface and network implementation of the kernel. Kernel 1st pack the data into various protocol layer before send. Similarly while receiving data, layer must be disassemble and analyse by the kernel before passing to application. These roles and responsibility are entirely taken by the network management subsystem.
+        </p></li>
+        <li ><h4>Process subsystem – </h4><p>The process subsystem is responsible for process synchronization, inter process communication, memory management and process scheduling. The file subsystem and process subsystem interact with each other when loading a file in memory for execution.
+        </p></li>
+        <li ><h4>Memory management – </h4><p>The memory management module controls the allocation of memory. If any system does not have enough physical memory for all processes, kernel moves them between main memory and secondary memory so that all processes get a fair chance to execute. The scheduler allocates the CPU to all process. It schedules the processes to run in turn. Scheduler makes the CPU busy and increase the CPU utilization. 
+        </p></li>
+       </ol>
+            <br>
+          <h2 style="text-align: center; text-decoration:underline;">Booting procedure</h2>
+                                       <br>
+           
+           <h4>Booting – </h4><p>The process of Bringing of kernel from Hard Disk to RAM is called booting. The Booting process starts from a flash         memory or an EEPROM. This flash memory stores a BIOS code (Basic input output system). So this EEPROM can be even called BIOS chip. This BIOS code in this chip basically contains the POST code.   
+           When we switch on, it takes some time to get the password because of booting.</p>
+
+          <h4>POST Code – </h4><p>Power ON Self-Test Code first code which runs immediately after the power is supplied.</p>
+           <ol class="post_code_list">
+             <li>First it checks for proper power supply to the system.</li>
+             <li>Then checks whether all the peripherals are connected to system or not.</li>
+             <li>If it is connected then checks whether it is functioning properly or not.</li>
+             <li>Then checks which all devices are active and bootable whether to boot from hard disk or floppy or pen drive or cd. Hard disk has highest priority.
+              <br>
+             <strong>>  Switch to super user , then type : fdisk –l
+               <br>Size of sector = 512byte.
+               </strong><br>446 bytes + 64 bytes = 510 bytes<br>
+               Post code goes to 0th sector of hard disk. This 0th sector is named as MBR (Master Boot Record). In this 446bytes is allocated for boot loader. There are 4 partitions of each 16 bytes and 2 bytes for magic number.</li>
+           </ol>
+
+           <h4>Primary Boot Loader – </h4><p>Loading of 1st 446 bytes of Boot loader from hard disk to RAM by post code is Primary BL. If the system has dual booting system, two partitions will be active one for each OS. (E.g. one for windows and other for Linux) Otherwise only one partition is active. We can operate 4 OS maximum. Primary BL checks which partition is active in order to load it to RAM. If dual booting system then 2 partitions is loaded to RAM and work of primary boot loader is over, it’s flushed out of RAM.
+            </p>
+
+            <h4>Secondary Boot Loader – </h4><p>The partitions that are loaded by Primary BL is Secondary BL... <br>(NEW) GRUB – Grand Unified Boot Loader. <br>(OLD) LIRO – Linux Loader (Upgraded to GRUB).<br><br>Secondary BL capable of displaying available kernels in the system. This is how we see options for different OS on screen waiting for our choice. If choice is not given by user then default choice is loaded to RAM and rest is flushed out of RAM.</p>
+            <p>When this partition (kernel) is loaded to RAM, kernel generates an init process (PID = 1) and control goes to this process. The 1st job is usually to check to make sure the disk is ok. If they have damaged by a hardware failure or sudden power outage, there are good reason to take recovery.</p>
+            <p>The init process start a copy of a program called getty to watch our screen and keyboard. Nowdays it usually starts multiple copies of getty for several (usually 6) virtual console, with our screen keyboard connected to one of them at a time. <br><br>
+            Till tty 6, it gives non-gui mode (ctrl+F1/F6).After that it gives gui mode (xorg process to give x windows or gui).</p>
+
+            <h5>Type on terminal: $ ps –el</h5>
+            <br>
+            <p>The next step is to generate n numbers of process called Demon Process, waiting for things to do. Demon processes are those processes running in the background like www server. These daemons process support networking and other services. The most important of these is X server that manages the keyboard, display and mouse. The main job to produce the color pixel graphics normally we see on our screen.</p>
+            <p>After ending the X process a graphical login screen, produces by a program called display manager. And the finished the entire booting process.<br><br>If 0th sector is corrupted, we can’t boot the kernel and whole hard disk will be useless.<br><br>
+            <span style="text-decoration: underline;">Magic Number</span> – magic number takes 2 bytes and give a validation check whether the MRB is corrupted or not</p>
+          
+           <h4>Shell – </h4><p>Shell is the outermost layer of the OS. It sits in b/w user and the OS, acting as command interpreter. It takes the terminal input and translates the action taken by the system.
+           <br><br>
+           Need of Shell – 
+           <ol>
+             <li> User can interact with hardware through kernel, if any component of the kernel is corrupted, kernel itself  Corrupted and take more time to recompile it. So shell protect kernel from these corruptions.</li>
+             <li>Linux shell provides a set of special commands that let us create programs called shell script.</li>
+           </ol>
+            </p>
+            <h4>Shell script - </h4><p>A shell script is a text file that contains a sequence of commands for a UNIX-based operating. It's called a shell script because it combines into a "script" in a single file a sequence of commands that would otherwise have to be presented to the system from a keyboard one at a time. The shell is the operating system's command interpreter and the set of commands you use to communicate with the system. A shell script is usually created for command sequences for which a user has a repeated need. You initiate the sequence of commands in the shell script by simply entering the name of the shell script on a command line.</p>
+
+            <br></br>
+
+
+           <div>
+              <h4>Leave a Comment:</h4>
+                 <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+                  {{ vm.error }}
+                  </div>
+         
+              <form  role="form" name="vm.linux_commentForm" ng-submit="vm.add_Linux_Comment()">
+                <div class="form-group">
+                  <textarea class=" form form-control" rows="3" required name="linux_comment" required ng-model="vm.linux_comment"></textarea>
+                </div>
+                <button type="submit" class="btn send pull-left" style="outline: none;">Submit</button>
+              </form>
+
+        <div class="Comment" style="padding-top: 80px;">
+
+              <ul class="comment_list">
+               <li class="name" ng-repeat="linux_comment in vm.linux_tutorial.linux_comments">
+              <div class="row">
+                <div class="col-sm-2 text-center">
+                  <img src="images/comment.png" class="img-circle" height="65" width="65" alt="Avatar">
+                </div>
+                <div class="col-sm-10">
+                  <h4>{{ linux_comment.name}}  <small> &#8226 {{linux_comment.createdOn | date:'MMM d, y h:mm a' }}</small></h4>
+                  <p>{{ linux_comment.linux_comment }}</p>   
+                  <br>
+                </div>
+                </li>
+        </ul>
+        </div>
+        </div>
+
+            </div>
+            
+          </div>
+          
+          </div>
+          
+          <div id="sidebar" >     
+            <div class="container-fuild" class="scroll"> 
+              <div class="input-group">
+                <input id="textbox"  class="form-control input_search" type="text" placeholder="Search on Google...">
+                <span class="input-group-btn">
+                <a class=" btn search" type="button" style="outline: none;" id="googleLink" href="notrequired" onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);">
+                    <span class="glyphicon glyphicon-search"  style="color: black"></span>
+                </a>
+                </span>
+              </div>
+              <div class="scroll">
+
+                <h3 style="padding-left: 7px"> Contents</h3>
+                  <ul class="fa-ul">
+                      <h4>&#9830 Devops</h4>
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/continuous_integration/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/configuration_management/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/distributed_version_control/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+                              
+                      <h4>&#9830 Linux</h4>
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/linux_os/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/file_subsystem_managament/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/process_management_subsystem/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+                    </ul>
+                  
+                </div>
+            </div>
+          
+          </div>
+           
+        </body>
+

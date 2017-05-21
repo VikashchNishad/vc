@@ -1,0 +1,120 @@
+<html>
+  <head>
+
+
+<script>
+
+
+  </script>
+  <style>
+
+
+.login-page {
+  width: 360px;
+  padding: 11% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: rgba(240, 95, 64, 0.9);
+  width: 100%;
+  border: 0;
+  margin: 15px 0 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: rgba(240, 95, 64, 1.0);
+}
+      .form .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 15px;
+      }
+      .form .message a {
+       color: rgba(240, 95, 64, 0.9);
+       font-family: 'Quicksand', sans-serif;
+      }
+
+      .form .message a:hover {
+       color: rgba(240, 95, 64, 1.0);
+      }
+
+
+
+      .form .register-form {
+        
+      }
+
+      body {
+        background: rgba(240, 95, 64, 0.9);
+        font-family: 'Quicksand', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;      
+      }
+
+ a.forgot-password {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
+  padding-left: 123px;
+ }
+ 
+  </style>
+</head>
+<body>
+ 
+
+<div class="login-page">
+
+  <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+    {{ vm.error }}<br><a ng-show="vm.expired" href="/resend">Resend Activation Link</a>
+  </div>
+  <div class="form">
+    <form class="login-form" role="form" method="post"  accept-charset="UTF-8" id="login-nav" ng-submit="vm.login()" >
+    <input type="username" name="Username"  placeholder="Username" required ng-model="vm.username" autocapitalize="none" required >
+ 
+      <input type="password" name="Password" placeholder="Password" required ng-model="vm.password" autocapitalize="none" required >
+       <a href="resetpassword" class="forgot-password">
+                Forgot the password?
+            </a>
+
+       <button type="submit">Login</button>
+
+      <p class="message">Not registered? <a ng-class="vm.isActiveTab('register')" ng-if="!vm.isLoggedIn()" href="register"> Create an account</a></p>
+    </form>
+  
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

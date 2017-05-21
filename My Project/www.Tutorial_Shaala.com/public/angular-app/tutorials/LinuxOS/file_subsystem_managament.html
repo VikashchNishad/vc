@@ -1,0 +1,338 @@
+
+<head>
+  
+  <style>
+    
+        body { 
+          font-family: 'Quicksand', sans-serif;
+              font-size: 16px;
+            background: #eee;
+         }
+        #page-wrap {  margin: 15px auto; position: relative; }
+        p { margin: 0 0 15px 0; text-indent: 50px;}
+        #main { width: 750px; float: left; background: white; padding: 70px 17px 17px 17px; margin-left: 35px;}
+        #sidebar div { padding: 10px; background: white;  }
+        #sidebar { width: 400px; position: fixed; left: 62%; top: 120px; margin-left:  75px; }
+ 
+        #page-wrap strong{
+          font-family: 'Quicksand', sans-serif;
+        }
+
+        ul.fa-ul li {
+           margin-left: 20px;
+            padding: 1px;
+        }
+
+          ul.fa-ul> li > a,
+          ul.fa-ul > li > a:focus {
+            z-index: 9999;
+            
+          }
+
+          ul.fa-ul > li.active > a,
+          ul.fa-ul > li.active > a:focus {
+           text-decoration: underline;
+          }
+
+          ul.fa-ul > li > a:hover,
+          ul.fa-ul > li > a:focus:hover {
+            opacity: 1;
+            text-decoration: underline;
+            filter: alpha(opacity=100);
+             transition: all 02s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+                }
+          ul.fa-ul li a:active,
+          ul.fa-ul  li a:focus {
+          text-decoration: underline;
+           opacity: 1;
+          filter: alpha(opacity=100);
+        }
+    
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+  }
+
+.form {
+  border-color: rgba(240, 95, 64, 0.6);
+}
+
+.form:hover {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .form:focus {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .send {
+      color: rgba(240, 95, 64, 1.0);
+          border-color: rgba(240, 95, 64, 1.0);
+          padding: 7px 17px;
+          text-transform: uppercase;
+    }
+    .send:hover {
+       background-color: rgba(240, 95, 64, 0.9);
+          color: #FFFFFF;
+    }
+  
+    .send:focus {
+       background-color: rgba(240, 95, 64, 0.9);
+       border-color: rgba(240, 95, 64, 1.0);
+          color: #FFFFFF;
+    }
+  ul {
+    font-family: 'Lato', sans-serif;
+  }
+     ul.comment_list {
+      transform: rotate(180deg);
+      }
+  ul.comment_list > li {
+      transform: rotate(-180deg);
+    }
+
+
+  li.name {
+    list-style-type: none;
+  }
+    .name h4 {
+      color: rgba(240, 95, 64, 1.0);
+    }
+    .name h4 small{
+      color: rgba(240, 95, 64, 0.9);
+    }
+   .input_search {
+        border-color: rgba(240, 95, 64, 0.6);
+    }
+    .input_search:focus {
+         border: 1px solid rgba(240, 95, 64, 1.0);
+    }
+    .search{
+        border-color: rgba(240, 95, 64, 0.7);
+    }
+    .search:hover {
+        background-color: rgba(240, 95, 64, 0.7);
+    }
+     
+    div.scroll {
+    background-color: #00FFFF;
+    height: 511px;
+    overflow: scroll;
+    }
+    a{
+          font-family: 'Quicksand', sans-serif;
+          -webkit-transition: all 0.35s;
+          -moz-transition: all 0.35s;
+          transition: all 0.35s;
+          color: #F05F40;
+          font-size: 15px;
+          }
+
+         ol li {
+           padding: 2px;
+             margin-left: 50px;
+        } 
+
+    </style>
+
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+  <div id="page-wrap">
+      
+    <div id="main">
+      <h1 style="text-align: center;">File Subsystem Managament</h1>
+         <hr>
+         <br>
+         
+         <p>Linux file system stats with a root directory at the top of the inverted tree. The root directory contains a number of directories which in turn contains number of subdirectories or files.</p>
+         <div class="container" style="padding-left: 25px;">
+         <img src="/images/Linux/file_subsystem_managament.jpg"></div> <br>
+         <p>Earlier version of Linux was based on MINIX file system. As kernel matured, the extended file system was introduced. It includes several significant extensions but offered unsatisfactory performance. The second extended file system (ext2) was introduced in 1994. It includes many new features.</p> 
+
+      <h3>Internals of ext2 file system - </h3><p>In this file system the ext2 partitions is spilt in block groups. Block groups is collection of blocks.                            The 1st block in each ext2 partition is reserved for boot block which is involve in booting process. Boot block is usually the 0th block in file system, it contains the bootstrap code and it is not managed by the file system.</p>
+      <div class="container" style="padding-left: 30px;">
+         <img src="/images/Linux/ext2.png"></div> <br>
+         <p>Arranging partition into block groups have following advantage:-</p>
+  <ol>
+    <li><strong>Reduces the fragmentation – </strong>Kernel tries to keep all the data blocks belonging to a file in the same block group.</li>
+    <li>File stored in a single block group can be accessed with a lower average disk seek time.</li>
+    </ol>
+    <p>All the block groups in the file system will have the same size and are stored sequentially. So kernel can access the block groups with the help of its index numbers.
+    <br>
+    Each block group reserved a few of its block to contain the following information:-</p>
+
+      <ol>
+        <li>A copy of the file system’s super block.</li>
+        <li>A copy of the group of block group description.</li>
+        <li>A data block bit map.</li>
+        <li>A inode bit map.  </li>
+        <li>A table of inode. </li>
+        <li>Actual data that belong to files i.e. data block.</li>
+      </ol>
+
+      <h3>Super block – </h3><p>Super block usually defines the state of the file system. It stores the information about the file system.</p>
+      <ol>
+        <li>Total number of inode.</li>
+        <li>File system size in blocks </li>
+        <li>Free block counter </li>
+        <li>Free inode counter </li>
+        <li>Block size</li>
+        <li>Number if block per group</li>
+        <li>Number of inode per group</li>
+        <li>Status flag</li>
+        <li>Size of on disk inode structure</li>
+      </ol>
+
+      <h3>Group Descriptor – </h3><p>Group descriptor always describes about block group. So every block group will have their own copy of group descriptors. The main attributes are:</p>
+      <ol>
+        <li>Block number of data block bit map</li>
+        <li>Block number of inode block bit map </li>
+        <li>Block number of 1st  inode table block</li>
+        <li>Number of free data blocks in group</li>
+        <li>Number of free inodes in the group</li>
+        <li>Number of directories in the group</li>
+      </ol>
+
+      <h3>Bitmap (Data block and inode block bit) — </h3><p>Bitmaps are sequences of the bits where the zero tell that the corresponding data/inode is free and value one tell that it is in use.</p>
+
+      <h3>Inode Table – </h3><p> The inode table (Index node) is data structure which contains the information about files. Each file there is an entry in inode table. If there is n number of files then there will be n number of inode entry in inode table. This inode entry of each file contains only file Meta data. Meta data is the data about the file and it does not contain the actual file data. Each inode entry is of 64 bytes.</p>
+      <p>To identify different file a unique number is assign to each file is called<strong> inode number.</strong></p>
+      
+      <h4 style="font-style: italic; text-decoration: underline;">Command:</h4><p><strong>ls   – i  (To find out the inode number)</strong></p>
+      <br>
+      <h4>The main attribute of inode data structure are:</h4>
+      <ol>
+        <li>Type of file (regular/directory)</li>
+        <li>File access permissions [r(read),w(write),x (execute)for three type of user]</li>
+          <ul style="margin-left: 0px;">
+            <li>Owner – Who created the file.</li>
+            <li>Other user who are in Owner group.</li>
+            <li>Other users who do not belongs to the Owner group.</li>
+          </ul>
+        
+        <li>Owner of file (uid)</li>
+        <li>Group to which Owner belongs (gid)</li>
+        <li>Data and time of last access (atime)</li>
+        <li>Data and time of creation of file (ctime)</li>
+        <li>Data and time of last modification (mtime)</li>
+        <li>Number of block used by file (block count)</li>
+        <li>Store the addresses of block where file is physically presents.</li>
+      </ol>
+
+      <p>The file is not stored contiguously. The file partitions and stored in distributed manner in the memory (All parts may be stored in different memory location). The inode entry stores the addresses of blocks, where the file is physically present.</p>
+    
+          <img src="" alt="image">
+
+    <p>In inode table 12 slots is allocated for Direct Block pointer which contain the 12 addresses of the blocks. These blocks are containing the physical data of the file.</p>
+
+    <strong>Example – </strong><p>Let’s assume a file with size 2560 bytes have to store in memory. Since the size of the block is 1kb(1024 bytes) and file size is more than 2kb so it will take more than 2 entries to store the file. So three entries will required to store the address of the three blocks to store the data.  
+    </p>
+    <p>However, reserving space for 12 addresses in inode table does not mean that 12 disk block is automatically allocated. If file size only 3 blocks long, the 1st 3 entries in the table contain the disk block numbers and remaining entries are filled with zero.</p>
+        
+     <h4>Single Indirect – </h4><p>As the file size grows beyond 12 blocks, the single indirect method is used to allocate the memory to store the file. The 13th block is allocated to specify a data block which contains the addresses of the next 256 data blocks (Assuming the block size 1024 bytes and each block is a 4 bytes address: so 1024/4 = 256 pointers). Using this method we can store the file with maximum size (12*256) = 3072 kb (0.268mb).</p> 
+     
+     <h4>Double Indirect – </h4><p>When file size grow beyond this size, the 14th block, known as Double indirect block is used. This block contains      the address of another block, which contains the addresses of 256 indirect blocks. Each indirect blocks are contains the addresses of next 256 data blocks to store the file. Using this method we can store the file with maximum size:- <strong>(12+256+256+ (256*256))*1024 = 64.26MB</strong> </p>
+
+     <h4>Triple Indirect  – </h4><p>Finally if the file size exceeds from 64.26MB the 15th block, known as Triple indirect block. Using this method we can store the file with maximum size 16GB.</p>    
+
+    <h3>Data Block – </h3><p>The last block in the block group is data block which represent the actual data blocks which need to be allocated to the file for data storage. Only super block and group descriptors included in block group zero are used by the kernel, while the remaining super blocks and group descriptor are left unchanged. Kernel does not look at them. Whenever the kernel does any operation and change any file system status, it refers to super block and group descriptor stored in block group 0 and then copies them in to all other block groups. Advantage of this operation is if any data corruption occurs and the main super block and group descriptor in block group zero becomes invalid, the system administrator can refer to old copies of the super block and group descriptors stored in the block groups other than 1st.</p><p>Whenever a file related operation occurs, multiple hard disk access will be required to reach the super block and inode block. In order to reduce the hard disk access, a copy of these data structure is maintained as part of the<strong>Virtual File System (VFS) </strong>which is part of kernel.</p><p>Super block will be copied into RAM at the time of booting while inode structure will be copied only when file is in use. The copy of inode in RAM is termed as <strong>incore inode</strong>and inode in the partition in termed as disk inode.</p>
+
+    <h4>VFS Data Structures</h4><p>The data structures part of VFS is</p>
+    <ul style="list-style-type: none;">
+      <li>1. Super block object</li>
+      <li>2. Incore inode object</li>
+      <li>3. Dentry object</li>
+      <li>4. File object</li>
+    </ul>
+    <br></br>
+    
+           <div>
+              <h4>Leave a Comment:</h4>
+                 <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+                  {{ vm.error }}
+                  </div>
+         
+              <form  role="form" name="vm.linux_commentForm" ng-submit="vm.add_Linux_Comment()">
+                <div class="form-group">
+                  <textarea class=" form form-control" rows="3" required name="linux_comment" required ng-model="vm.linux_comment"></textarea>
+                </div>
+                <button type="submit" class="btn send pull-left" style="outline: none;">Submit</button>
+              </form>
+
+        <div class="Comment" style="padding-top: 80px;">
+
+              <ul class="comment_list">
+               <li class="name" ng-repeat="linux_comment in vm.linux_tutorial.linux_comments">
+              <div class="row">
+                <div class="col-sm-2 text-center">
+                  <img src="images/comment.png" class="img-circle" height="65" width="65" alt="Avatar">
+                </div>
+                <div class="col-sm-10">
+                  <h4>{{ linux_comment.name}}  <small> &#8226 {{linux_comment.createdOn | date:'MMM d, y h:mm a' }}</small></h4>
+                  <p>{{ linux_comment.linux_comment }}</p>   
+                  <br>
+                </div>
+                </li>
+        </ul>
+        </div>
+        </div>
+
+            </div>
+            
+          </div>
+          
+          </div>
+          
+          <div id="sidebar" >     
+            <div class="container-fuild" class="scroll"> 
+              <div class="input-group">
+                <input id="textbox"  class="form-control input_search" type="text" placeholder="Search on Google...">
+                <span class="input-group-btn">
+                <a class=" btn search" type="button" style="outline: none;" id="googleLink" href="notrequired" onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);">
+                    <span class="glyphicon glyphicon-search"  style="color: black"></span>
+                </a>
+                </span>
+              </div>
+              <div class="scroll">
+
+                <h3 style="padding-left: 7px"> Contents</h3>
+                   <ul class="fa-ul">
+                      <h4>&#9830 Devops</h4>
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/continuous_integration/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/configuration_management/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+                          <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/distributed_version_control/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+                              
+                      <h4>&#9830 Linux</h4>
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/linux_os/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/file_subsystem_managament/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+                           <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/process_management_subsystem/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+                    </ul>
+
+                </div>
+            </div>
+          
+          </div>
+           
+        </body>
+

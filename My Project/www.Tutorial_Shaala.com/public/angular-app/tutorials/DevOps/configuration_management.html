@@ -1,0 +1,262 @@
+
+<head>
+  
+  <style>
+    
+        body { 
+          
+              font-size: 16px;
+            background: #eee;
+         }
+        #page-wrap {  margin: 15px auto; position: relative; }
+        p { margin: 0 0 15px 0; text-indent: 50px;}
+        #main { width: 750px; float: left; background: white; padding: 70px 17px 17px 17px; margin-left: 35px;}
+        #sidebar div { padding: 10px; background: white;  }
+        #sidebar { width: 400px; position: fixed; left: 62%; top: 120px; margin-left:  75px; }
+ 
+        #page-wrap strong{
+          font-family: 'Quicksand', sans-serif;
+        }
+ ul.fa-ul li {
+           margin-left: 20px;
+            padding: 1px;
+        }
+
+          ul.fa-ul> li > a,
+          ul.fa-ul > li > a:focus {
+            z-index: 9999;
+            
+          }
+
+          ul.fa-ul > li.active > a,
+          ul.fa-ul > li.active > a:focus {
+           text-decoration: underline;
+          }
+
+          ul.fa-ul > li > a:hover,
+          ul.fa-ul > li > a:focus:hover {
+            opacity: 1;
+            text-decoration: underline;
+            filter: alpha(opacity=100);
+             transition: all 02s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+                }
+          ul.fa-ul li a:active,
+          ul.fa-ul  li a:focus {
+          text-decoration: underline;
+           opacity: 1;
+          filter: alpha(opacity=100);
+        }
+ 
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+  }
+
+.form {
+  border-color: rgba(240, 95, 64, 0.6);
+}
+
+.form:hover {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .form:focus {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .send {
+      color: rgba(240, 95, 64, 1.0);
+          border-color: rgba(240, 95, 64, 1.0);
+          padding: 7px 17px;
+          text-transform: uppercase;
+    }
+    .send:hover {
+       background-color: rgba(240, 95, 64, 0.9);
+          color: #FFFFFF;
+    }
+  
+    .send:focus {
+       background-color: rgba(240, 95, 64, 0.9);
+       border-color: rgba(240, 95, 64, 1.0);
+          color: #FFFFFF;
+    }
+
+   ul.comment_list {
+      transform: rotate(180deg);
+      }
+  ul.comment_list > li {
+      transform: rotate(-180deg);
+    }
+
+  li.name {
+    list-style-type: none;
+  }
+    .name h4 {
+      color: rgba(240, 95, 64, 1.0);
+    }
+    .name h4 small{
+      color: rgba(240, 95, 64, 0.9);
+    }
+   .input_search {
+        border-color: rgba(240, 95, 64, 0.6);
+    }
+    .input_search:focus {
+         border: 1px solid rgba(240, 95, 64, 1.0);
+    }
+    .search{
+        border-color: rgba(240, 95, 64, 0.7);
+    }
+    .search:hover {
+        background-color: rgba(240, 95, 64, 0.7);
+    }
+    
+    div.scroll {
+    background-color: #00FFFF;
+    height: 511px;
+    overflow: scroll;
+    }
+
+     a{
+          font-family: 'Quicksand', sans-serif;
+          -webkit-transition: all 0.35s;
+          -moz-transition: all 0.35s;
+          transition: all 0.35s;
+          color: #F05F40;
+          font-size: 15px;
+          }
+
+    </style>
+
+
+</head>
+
+<body>
+    
+
+   <div class="container">
+
+  <div id="page-wrap">
+      
+    <div id="main">
+         <h1 style="text-align: center;"> Configuration Management </h1>
+         
+         <hr>
+         <br>
+         <h3>Why we need configuration management  ?</h3>
+         <p>   Before configuration management system administrators usually perform repetitive tasks such as installing servers, configuring those servers, etc. They can automate this task, by writing scripts, but it is a very hectic job when you are working on a large infrastructure.
+    Problems in before continuous management–
+   </p>
+  <ul>
+    <li>Configuring large infrastructure was very hectic job. Suppose system administrator has to deploy Mean stack application on the four node, so that is not big issue he can manually deploy Mean stack on four node but happens if the infrastructure is huge let say now he has to deploy Mean stack on hundreds of node. So now he cannot go and deploy the application manually on the hundreds of node because it will take lot of time, wastage of resources and along that there is chance of human error.</li>
+    <li>Rollback to the previous version of the software was very difficult because suppose there is an updated version of mongoDB is available and now the organization wants to update the Mean stack application on the all nodes. So system administration will go and manually update all the nodes but let suppose there are certain glitches with the updated version of the software and now organization wants to roll back to the previous version of the software, so again system admiration has to go reinstall the previous version of mongoDB on the nodes. So we can see that it will become vary tedious job for the system admiration and wastage of lot of time in doing all that.</li>
+    <li>Suppose the development environment and testing environment using updated version of software (like mongoDB) but in production environment they still using previous version of the software. So in this case if some application is not compatible with previous version of the software, it will work properly in development and testing environment as well but it will not work in production environment.</li>
+    
+  </ul>
+    
+         <h3>What is configuration management  ?</h3>
+         <p> Configuration management is basically a process that helps to manage the changes in the infrastructure in most systematically and structured way. It allows access to an accurate historical record of the system state for the project management. The configuration management can be achieving with help of concept of Infrastructure as Code (IAS).  Infrastructure as code means writing code for your infrastructure and it is written at one central location we can call it server or master and that code is deploy on DEV environment, TEST environment and PROD environment basically on entire infrastructure. So now he can configure every node of the infrastructure from one central location. Suppose system administrators has to install apache, Tomcat on the nodes, so he can write a code in one master server and push it on all the nodes. So now he does not have to configure the all the nodes manually, he can configure and manage the entire infrastructure from one location master server. So it will save the time.</p>
+            <p> Before configuration management it was very difficult to roll back to previous version of software but now the entire infrastructure is manage from one central location so rolling back to previous version of the software become very easy. And the third problem in before configuration management was variation and inconsistency in varies team like DEV team, TEST team and PROD team, like computing environment was different in DEV, TEST and PROD team. But now with the help of infrastructure as code all three environments DEV, TEST and PROD are in the same computing environment.</p>
+            <h4>Configuration Management approaches —</h5><p> There are two configuration management approaches: Push and Pull approach.</p>
+
+         <img src="images/push-pull.gif" style="width: 90%">
+
+         <p>There are broadly two ways to manage your configurations namely Push and Pull configurations.</p>
+             <ul>
+              <li>
+                <b>Pull Configuration:-</b><p>In this type of Configuration Management, the nodes poll a centralized server periodically for updates. These nodes are dynamically configured so basically they are pulling configurations from the centralized server. Pull configuration is used by tools like Chef, Puppet etc.</p>
+              </li>
+              <li><b>Push Configuration:-</b><p>In this type of Configuration Management, the centralized Server pushes the configurations to the nodes. Unlike Pull Configuration, there are certain commands that have to be executed in the centralized server in order to configure the nodes. Push Configuration is used by tools like Ansible.</p></li>
+              
+             </ul>
+             <br></br>
+
+
+
+   <br></br>
+
+
+   <div>
+      <h4>Leave a Comment:</h4>
+         <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+          {{ vm.error }}
+          </div>
+ 
+      <form  role="form" name="vm.devops_commentForm" ng-submit="vm.addComment()">
+        <div class="form-group">
+          <textarea class=" form form-control" rows="3" required name="devops_comment" required ng-model="vm.devops_comment"></textarea>
+        </div>
+        <button type="submit" class="btn send pull-left" style="outline: none;">Submit</button>
+      </form>
+
+<div class="Comment" style="padding-top: 80px;">
+
+      <ul class="comment_list">
+       <li class="name" ng-repeat="devops_comment in vm.devops_tutorial.devops_comments">
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="images/comment.png" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>{{ devops_comment.name}}  <small> &#8226 {{devops_comment.createdOn | date:'MMM d, y h:mm a' }}</small></h4>
+          <p>{{ devops_comment.devops_comment }}</p>   
+          <br>
+        </div>
+        </li>
+</ul>
+</div>
+</div>
+
+    </div>
+    
+  </div>
+  
+  </div>
+  
+  <div id="sidebar" >     
+    <div class="container-fuild"> 
+      <div class="input-group">
+        <input id="textbox"  class="form-control input_search" type="text" placeholder="Search on Google...">
+        <span class="input-group-btn">
+        <a class=" btn search" type="button" style="outline: none;" id="googleLink" href="notrequired" onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);">
+            <span class="glyphicon glyphicon-search"  style="color: black"></span>
+        </a>
+        </span>
+      </div>
+      <div class="scroll">
+
+        <h3 style="padding-left: 7px"> Contents</h3>
+          <ul class="fa-ul">
+            <h4>&#9830 Devops</h4>
+              <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/continuous_integration/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+              <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/configuration_management/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+              <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/distributed_version_control/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+                
+            <h4>&#9830 Linux</h4>
+               <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/linux_os/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+               <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/file_subsystem_managament/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+               <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/process_management_subsystem/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+          </ul>
+
+        </div>
+    </div>
+  
+  </div>
+   
+</body>
+

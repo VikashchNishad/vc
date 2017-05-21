@@ -1,0 +1,108 @@
+      <html>
+        <head>
+          
+      <script>
+    
+        </script>
+        <style>
+
+      .Register-page {
+        width: 360px;
+        padding: 8% 0 0;
+        margin: auto;
+      }
+      .form {
+        position: relative;
+        z-index: 1;
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+      }
+      .form input {
+        font-family: "Roboto", sans-serif;
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: 0;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+
+
+      .form button {
+        font-family: 'Quicksand', sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: rgba(240, 95, 64, 0.9);
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+      }
+
+      .form button:hover,.form button:active,.form button:focus {
+        background: rgba(240, 95, 64, 1.0);
+      }
+      .form .message {
+        margin: 15px 0 0;
+        color: #b3b3b3;
+        font-size: 15px;
+      }
+      .form .message a {
+       color: rgba(240, 95, 64, 0.9);
+       font-family: 'Quicksand', sans-serif;
+      }
+
+      .form .message a:hover {
+       color: rgba(240, 95, 64, 1.0);
+      }
+
+      body {
+        background: rgba(240, 95, 64, 0.9);
+        font-family: 'Quicksand', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;      
+      }
+     
+        </style>
+      </head>
+      <body>
+       <div class="Register-page">
+
+      <div ng-if="vm.message" class="alert alert-success" role="alert"  style="text-align: center;">
+        <p>{{ vm.message }}</p>
+      </div>
+      <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+        {{ vm.error }}
+      </div>
+
+
+
+        <div class="form" ng-if="!vm.isSuccesRegister">
+          <form class="register-form" ng-hide="vm.message" name="register" ng-submit="vm.register()">
+            <input type="username" id="username" placeholder="Username" ng-model="vm.username" autocapitalize="none">
+            <input type="email" id="email" placeholder="Email" ng-model="vm.email" autocapitalize="none">
+            <input type="name" id="name" placeholder="Name" ng-model="vm.name" autocapitalize="none">
+            <input type="password" id="password" placeholder="Password" ng-model="vm.password" autocapitalize="none">
+            <input type="password" id="password-repeat" placeholder="Password" ng-model="vm.passwordRepeat" autocapitalize="none">
+            <button type="submit">Register</button>
+            <p class="message">Already registered? <a href="login"> Sign In</a></p>
+          </form>
+        </div>
+      </div>
+
+
+      </body>
+      </html>
+
+
+

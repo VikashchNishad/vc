@@ -1,0 +1,278 @@
+
+<head>
+  
+  <style>
+    
+        body { 
+          
+              font-size: 16px;
+            background: #eee;
+         }
+        #page-wrap {  margin: 15px auto; position: relative; }
+        p { margin: 0 0 15px 0; text-indent: 50px;}
+        #main { width: 750px; float: left; background: white; padding: 70px 17px 17px 17px; margin-left: 35px;}
+        #sidebar div { padding: 10px; background: white;  }
+        #sidebar { width: 400px; position: fixed; left: 62%; top: 120px; margin-left:  75px; }
+ 
+        #page-wrap strong{
+          font-family: 'Quicksand', sans-serif;
+        }
+ ul.fa-ul li {
+           margin-left: 20px;
+            padding: 1px;
+        }
+
+          ul.fa-ul> li > a,
+          ul.fa-ul > li > a:focus {
+            z-index: 9999;
+            
+          }
+
+          ul.fa-ul > li.active > a,
+          ul.fa-ul > li.active > a:focus {
+           text-decoration: underline;
+          }
+
+          ul.fa-ul > li > a:hover,
+          ul.fa-ul > li > a:focus:hover {
+            opacity: 1;
+            text-decoration: underline;
+            filter: alpha(opacity=100);
+             transition: all 02s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+                }
+          ul.fa-ul li a:active,
+          ul.fa-ul  li a:focus {
+          text-decoration: underline;
+           opacity: 1;
+          filter: alpha(opacity=100);
+        }
+ 
+ 
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+th {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+  }
+
+.form {
+  border-color: rgba(240, 95, 64, 0.6);
+}
+
+.form:hover {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .form:focus {
+  border: 1px solid rgba(240, 95, 64, 1.0);
+  }
+  .send {
+      color: rgba(240, 95, 64, 1.0);
+          border-color: rgba(240, 95, 64, 1.0);
+          padding: 7px 17px;
+          text-transform: uppercase;
+    }
+    .send:hover {
+       background-color: rgba(240, 95, 64, 0.9);
+          color: #FFFFFF;
+    }
+  
+    .send:focus {
+       background-color: rgba(240, 95, 64, 0.9);
+       border-color: rgba(240, 95, 64, 1.0);
+          color: #FFFFFF;
+    }
+
+     ul.comment_list {
+      transform: rotate(180deg);
+      }
+  ul.comment_list > li {
+      transform: rotate(-180deg);
+    }
+
+
+  li.name {
+    list-style-type: none;
+  }
+    .name h4 {
+      color: rgba(240, 95, 64, 1.0);
+    }
+    .name h4 small{
+      color: rgba(240, 95, 64, 0.9);
+    }
+   .input_search {
+        border-color: rgba(240, 95, 64, 0.6);
+    }
+    .input_search:focus {
+         border: 1px solid rgba(240, 95, 64, 1.0);
+    }
+    .search{
+        border-color: rgba(240, 95, 64, 0.7);
+    }
+    .search:hover {
+        background-color: rgba(240, 95, 64, 0.7);
+    }
+    
+   
+    div.scroll {
+    background-color: #00FFFF;
+    height: 511px;
+    overflow: scroll;
+    }
+   a{
+          font-family: 'Quicksand', sans-serif;
+          -webkit-transition: all 0.35s;
+          -moz-transition: all 0.35s;
+          transition: all 0.35s;
+          color: #F05F40;
+          font-size: 15px;
+          }
+
+    ul.list li {
+       padding:10px;
+    }      
+    </style>
+
+
+</head>
+<body>
+    
+    <div class="container">
+      <div id="page-wrap">
+      <div id="main">
+
+         <h1 style="text-align: center;"> Continuous Integration </h1>
+         <hr>
+         <br>
+         <h3>Why we need continuous integration ?</h3>
+         <p>Before continuous integration the group of developers make changes to the repository (repository can be git repository or sub version repository) and when entire app is written to the git repository, built by Ant Maven etc. and after that the built application deployed on the test server for testing and if any bug in code the developer notify by feedback loop and if no any bug then application deployed on the production server for releases.<br>
+         <strong>Problems in before continuous integration – </strong></p>
+          <ul class="list">
+          <li>Developers have to wait till the complete software is developed for test results. Frist the entire source code of the application build then only      deployed on the test server for testing. It takes lot of time. So developers have to wait long time in order to get the test result.</li>
+          <li>Since the entire source code of the application first built and then it is tested. So if test fails then locating and fixing bugs is very difficult. Developers have to check the entire source code of the software in order fix the bugs.</li>
+          <li>Since the developers wasting lots of time in locating and fixing bugs instead of building new application. So the software delivery process was slow.</li>
+          <li>Continuous feedback related to things like architecture issue, build failures, test status etc. was not present. </li>
+        </ul>
+    
+         <h3>What is continuous integration ?</h3>
+         <p>Continuous Integration is a development practice in which the developers are required to commit changes to the source code in a shared repository several times a day or more frequently. Every commit made in the repository is then built. After every commit to the source code an auto build is triggered then it is automatically deployed on the test server. If the test result shows that there is any bug in the source code at that time the developer is notified then the developer only have to check the last commit made to the source code in order to fix the bugs. Since the developers does not have to wasting lots of time in locating and fixing bugs now he can focus on the building new application. This increases the frequency of new software releases. It also provides continuous feedback related to things like architecture issue, build failures, test status etc.</p>
+
+         <img src="images/ci.png" style="width: 90%">
+
+       <table>
+            <thead>
+                <tr>
+                    <th>Before continuous integration </th>
+                    <th>After continuous integration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>The entire source code was built and then tested.</td>
+                    <td>Every commit made in the source code is built and tested.</td>
+                </tr>
+                <tr>
+                    <td>Developers have waited for test result.</td>
+                    <td>Developers know the test result of every commit made in source code in the run.</td>
+                </tr>
+                <tr>
+                    <td>No feedback.</td>
+                    <td>Feedback present.</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Continuous integration tools </h3>
+        <p>There are many tools that help in continuous integration. Jenkins, Buildbot, Travis and Bamboo are the most widely used continuous   integration tools in market.</p>
+        <h3>What is Jenkins ? </h3>
+        <p>Jenkins is an open source automation tool written in Java with plugins built for Continuous Integration purpose. Jenkins is used to build and test your software projects continuously making it easier for developers to integrate changes to the project, and making it easier for users to obtain a fresh build. It also allows you to continuously deliver your software by integrating with a large number of testing and deployment technologies.</p>
+        <p>The image below depicts that Jenkins is integrating various DevOps stages:-</p>
+        <img src="images/jenkin.jpg" style="width: 90%">
+  
+
+   <br></br>
+
+
+   <div ng-controller="Devops_tutorialController as vm">
+      <h4>Leave a Comment:</h4>
+         <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+          {{ vm.error }}
+          </div>
+ 
+      <form  role="form" name="vm.devops_commentForm" ng-submit="vm.addComment()">
+        <div class="form-group">
+          <textarea class=" form form-control" rows="3" required name="devops_comment" required ng-model="vm.devops_comment"></textarea>
+        </div>
+        <button type="submit" class="btn send pull-left" style="outline: none;">Submit</button>
+      </form>
+
+<div class="Comment" style="padding-top: 80px;">
+
+      <ul class="comment_list">
+       <li class="name" ng-repeat="devops_comment in vm.devops_tutorial.devops_comments">
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="images/comment.png" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>{{ devops_comment.name}}  <small> &#8226 {{devops_comment.createdOn | date:'MMM d, y h:mm a' }}</small></h4>
+          <p>{{ devops_comment.devops_comment }}</p>   
+          <br>
+        </div>
+        </li>
+      </ul>
+    </div>
+</div>
+
+    </div>
+    
+  </div>
+  
+  </div>
+  
+  <div id="sidebar" >     
+    <div class="container-fuild"> 
+      <div class="input-group">
+        <input id="textbox"  class="form-control input_search" type="text" placeholder="Search on Google...">
+        <span class="input-group-btn">
+        <a class=" btn search" type="button" style="outline: none;" id="googleLink" href="notrequired" onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);">
+            <span class="glyphicon glyphicon-search"  style="color: black"></span>
+        </a>
+        </span>
+      </div>
+      <div class="scroll">
+
+        <h3 style="padding-left: 7px"> Contents</h3>
+          <ul class="fa-ul">
+            <h4>&#9830 Devops</h4>
+              <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/continuous_integration/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+              <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/configuration_management/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+              <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/distributed_version_control/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+                
+            <h4>&#9830 Linux</h4>
+               <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/linux_os/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+               <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/file_subsystem_managament/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+               <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/process_management_subsystem/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+          </ul>
+
+        </div>
+    </div>
+  
+  </div>
+   
+</body>
+

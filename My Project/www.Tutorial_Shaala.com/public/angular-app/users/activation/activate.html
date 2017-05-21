@@ -1,0 +1,53 @@
+<html>
+  <head>
+    
+    <link href="css/custom.css" rel="stylesheet">
+    
+
+<script>
+   $('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+
+  </script>
+  <style>
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.Activation-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+
+
+body {
+  background: rgba(240, 95, 64, 0.9);
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+
+
+  </style>
+</head>
+<body>
+ <div class="Activation-page">
+     <div ng-if="vm.Msg" class="alert alert-success" role="alert" style="text-align: center;">
+        {{ vm.Msg }}
+      </div>
+
+      <div ng-if="vm.error" class="alert alert-danger" role="alert" style="text-align: center;">
+        {{ vm.error}}
+      </div>
+</div>
+
+
+</body>
+</html>
+
+
+

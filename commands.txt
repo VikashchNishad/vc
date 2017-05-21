@@ -1,0 +1,28 @@
+ $npm init
+ $npm install express --save
+ $npm install mocha --save-dev
+
+ We create the git config file that make sure the node module folder is uploaded or not.
+ So create .gitignore file in mean floder and add node_modules in it and that will prevent anything in the node_mudule folder
+ from being pushed.
+
+
+ NoW add  "start": "node app.js", in scripts in package.json file. 
+ Now we can use npm start to run the application.
+
+ $npm install -g nodemon
+ $npm install --save body-parser
+ $npm install mongodb --save
+ $npm install --save mongoose
+
+ $npm i bcrypt-nodejs
+ $npm install jsonwebtoken
+
+Angular--->>
+ 
+ $npm i angular angular-route
+ $npm i angular-jwt
+ mongoose-unique-validator
+
+
+ $npm install nodemailer

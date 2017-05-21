@@ -1,0 +1,94 @@
+
+<html>
+  <head>
+
+    
+  <style>
+
+  ul {
+    list-style-type: none;
+  }
+
+
+    #tutorials{
+     padding-top: 55px;
+     background-color:#eee;
+     }
+
+.fa-ul li a {
+  font-size: 18px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+
+  ul.icon-list {
+    font-size: 2em;
+    margin: 1em;
+    margin-left: 3em;
+  }
+
+
+
+  </style>
+</head>
+
+<body>
+  <div id="tutorials" class="container">
+  <div class="container" style="padding: 60px 0px;">
+     
+         <h1 style="text-align: center;">Table of Contents </h1>
+         <hr>
+<div class="container" style="padding: 0px 220px;">
+
+     <ul class="icon-list">
+       <h3>&#9830 DevOps</h3>
+
+			<ul class="fa-ul">
+
+        <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/continuous_integration/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+       <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/configuration_management/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+
+       <li ng-repeat="devops_tutorial in vm.devops_tutorials" ng-show="devops_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/devops_tutorial/distributed_version_control/{{ devops_tutorial._id }}">{{ devops_tutorial.name }}</a></li>
+      </ul>
+
+       <h3>&#9830 Linux</h3>
+          <ul class="fa-ul">
+
+          <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==1"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/linux_os/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+          <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==2"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/file_subsystem_managament/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+
+          <li ng-repeat="linux_tutorial in vm.linux_tutorials" ng-show="linux_tutorial.id==3"><i class="fa fa-cog fa-spin fa-1x fa-fw"></i><a ng-href="tutorials/linux_tutorial/process_management_subsystem/{{ linux_tutorial._id }}">{{ linux_tutorial.name }}</a></li>
+          
+        </ul>
+       </li>
+
+       <h3>&#9830 C++</h3>
+     </ul>
+         
+    
+</div>
+    
+</div>
+</div>
+
+ <div class="footer" style="background-color: transparent; border-top: 1px solid #E6E6FA">
+      <div class="container footer_container">
+              <a href='#'><i class="fa fa-twitch fa-2x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-facebook fa-2x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-twitter fa-2x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-youtube-play fa-2x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-rss fa-2x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-vine fa-2x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-flickr fa-2x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-linkedin fa-2x fa-fw"></i></a>
+            </span>
+      </div>
+    </div>
+
+
+</body>
+</html>
+

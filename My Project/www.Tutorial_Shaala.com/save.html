@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+<script>
+    jQuery(document).ready(function($) {
+ 
+        $('#myCarousel').carousel({
+                interval: 3000
+        });
+ 
+        $('#carousel-text').html($('#slide-content-0').html());
+ 
+        //Handles the carousel thumbnails
+       $('[id^=carousel-selector-]').click( function(){
+            var id = this.id.substr(this.id.lastIndexOf("-") + 1);
+            var id = parseInt(id);
+            $('#myCarousel').carousel(id);
+        });
+ 
+ 
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid.bs.carousel', function (e) {
+                 var id = $('.item.active').data('slide-number');
+                $('#carousel-text').html($('#slide-content-'+id).html());
+        });
+});
+
+ 
+
+
+  </script>
+  <style>
+
+    #mycarousel {
+         padding-top: 32px;
+         
+           
+      }
+      #mycarousel .item {
+        color:#000;
+        background-color:#eee;
+        padding-top:20px
+    }
+
+    #slide-content .input-group{
+      padding-top: 40px;
+      
+    }
+
+
+    .hide-bullets {
+        list-style:none;
+        margin-left: -40px;
+        margin-top:20px;
+    }
+    .bg-grey {
+          background-color: #f6f6f6;
+      }
+    .btn-xl {
+      padding: 15px 30px;
+      color: black;
+      border-color: white;
+    }
+
+    .input_search {
+        border-color: rgba(240, 95, 64, 0.6);
+    }
+    .input_search:focus {
+         border: 1px solid rgba(240, 95, 64, 1.0);
+    }
+    .search{
+        border-color: rgba(240, 95, 64, 0.7);
+    }
+    .search:hover {
+        background-color: rgba(240, 95, 64, 0.7);
+    }
+
+
+  </style>
+
+
+</head>
+
+<body>
+
+
+       <div id="mycarousel">
+
+                                <div class="carousel slide" id="myCarousel" >
+                                    <!-- Carousel items -->
+                                    <div class="carousel-inner">
+
+                <div class="active item" data-slide-number="0">
+                    <img src="/images/home/home1.jpg" style="width: 100%;">
+                        <div class="container">
+                         <div class="carousel-caption">
+                           <h3>Enroll your self into Technology</h3>
+                            <p>Note: If you're viewing this page via a URL,the"next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                            <p><a class=" btn btn-md btn-default demo" href="register" role="button">Sign up today</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item" data-slide-number="1">
+                    <img src="/images/home1.png" style="width: 100%;">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>Start Leaning</h3>
+                                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                    <p><a class="btn btn-md btn-default demo" href="tutorials" role="button">Learn More</a></p>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="item" data-slide-number="2">
+                    <img src="/images/home.png" style="width: 100%;">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h3>One more for good measure.</h3>
+                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-md btn-default demo" href="#" role="button">Browse gallery</a></p>
+                  </div>
+              </div>                                   
+    </div>
+                            
+
+                            
+                               <!--
+                            <div id="slide-content" class="container-fluid">
+                                <div class="input-group">
+
+                        <input id="textbox"  class="form-control input_search" type="text" placeholder="Search on Google...">
+                        <span class="input-group-btn">
+                        <a class=" btn search" type="button" style="outline: none;" id="googleLink" href="notrequired" onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);">
+                            <span class="glyphicon glyphicon-search"  style="color: black"></span>
+                        </a>
+                        </span>
+                      </div>  -->
+                             
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+               
+                
+  
+<!--  Gallery
+            ================================================== -->
+ <section id="gallery" style="padding:0">
+            <div class="container-fluid">
+                <div class="row no-gutter">
+                    <div class="col-lg-3">
+                        <a ng-href="tutorials/devops_tutorial/continuous_intergration/58f75b63b83d72172cffafe8" class="gallery-box">
+                            <img src="/images/ci/ci.png" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        DevOps
+                                    </div>
+                                    <div class="project-name">
+                                        Continuous Integration
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a ng-href="tutorials/devops_tutorial/configuration_management/58f75b7db83d72172cffafe9" class="gallery-box">
+                            <img src="/images/cm/cm.jpg" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        DevOps
+                                    </div>
+                                    <div class="project-name">
+                                        Configuration Management
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a ng-href="tutorials/devops_tutorial/distributed_version_control_system/58f75b8fb83d72172cffafea" class="gallery-box">
+                            <img src="/images/dvcs/2.jpeg" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        DevOps
+                                    </div>
+                                    <div class="project-name">
+                                        Distributed Version Control System
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#" class="gallery-box">
+                            <img src="/images/ci/2.png" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="tutorials/linux_os/linux_os_intro" class="gallery-box">
+                            <img src="/images/Linux/3.jpg" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        os
+                                    </div>
+                                    <div class="project-name">
+                                        linux os
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#" class="gallery-box">
+                            <img src="/images/cm/cm1.png" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                      <div class="col-lg-3">
+                        <a href="#" class="gallery-box">
+                            <img src="/images/2.png" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                      <div class="col-lg-3">
+                        <a href="#" class="gallery-box">
+                            <img src="/images/dvcs/8.jpg" class="img-responsive">
+                            <div class="gallery-box-caption">
+                                <div class="gallery-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        Category
+                                    </div>
+                                    <div class="project-name">
+                                        Project Name
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>    
+</div>
+
+<aside class="bg-dark">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Start Smart Learning</h2>
+                <a href="tutorials" class="btn btn-default btn-xl sr-button">Get Started!</a>
+            </div>
+        </div>
+    </aside>
+
+<footer class="footer">
+    <div>
+        <p class="text-muted text-center">
+             <a href="#" target="_blank"><img src="/images/fullstacktraining_logo.png" height="30" alt="Full Stack Training"/></a>
+      </p>
+
+      <p class="text-muted text-center">
+        <small>&copy; 2017 Full Stack Tutorials Ltd</small>
+      </p>
+  </div>
+   </footer>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+                                   

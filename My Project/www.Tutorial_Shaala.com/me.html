@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	/* div container containing the form  */
+#searchContainer {
+	margin:20px;
+}
+
+/* Style the search input field. */
+#field {
+	float:left; 
+	width:300px; 
+	height:27px; 
+	line-height:27px;
+	text-indent:10px; 
+	font-family:arial, sans-serif; 
+	font-size:1em; 
+	color:#333; 
+	background: #fff; 
+	border:solid 1px #d9d9d9; 
+	border-top:solid 1px #c0c0c0; 
+	border-right:none;
+}
+
+/* Style the "X" text button next to the search input field */
+#delete {
+	float:left; 
+	width:16px;
+	height:29px; 
+	line-height:27px; 
+	margin-right:15px; 
+	padding:0 10px 0 10px;
+	font-family: "Lucida Sans", "Lucida Sans Unicode",sans-serif;
+	font-size:22px; 
+	background: #fff;  
+	border:solid 1px #d9d9d9; 
+	border-top:solid 1px #c0c0c0; 
+	border-left:none;
+}
+/* Set default state of "X" and hide it */
+#delete #x {
+	color:#A1B9ED; 
+	cursor:pointer;
+	display:none;
+}
+/* Set the hover state of "X" */
+#delete #x:hover {
+	color:#36c;
+}
+/* Syle the search button. Settings of line-height, font-size, text-indent used to hide submit value in IE */
+#submit {
+	cursor:pointer; 
+	width:70px; 
+	height: 31px; 
+	line-height:0; 
+	font-size:0; 
+	text-indent:-999px;
+	color: transparent;  
+	background: url(ico-search.png) no-repeat #4d90fe center; 
+	border: 1px solid #3079ED; 
+	-moz-border-radius: 2px; 
+	-webkit-border-radius: 2px; 
+}
+/* Style the search button hover state */
+#submit:hover {
+	background: url(ico-search.png) no-repeat center #357AE8; 
+	border: 1px solid #2F5BB7;
+}
+/* Clear floats */
+.fclear {clear:both}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+	// if text input field value is not empty show the "X" button
+	$("#field").keyup(function() {
+		$("#x").fadeIn();
+		if ($.trim($("#field").val()) == "") {
+			$("#x").fadeOut();
+		}
+	});
+	// on click of "X", delete input field value and hide "X"
+	$("#x").click(function() {
+		$("#field").val("");
+		$(this).hide();
+	});
+});
+</script>
+<body>
+
+
+
+
+<input id="textbox" type="text" placeholder="Search on Google...">
+<a id="googleLink" href="notrequired" onclick="this.href='http://www.google.com/search?q=' + encodeURIComponent(document.getElementById('textbox').value);">
+    <span>Search</span>
+</a>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+  <div class="container">
+
+  <div id="page-wrap">
+      
+    <div id="main">
+         <h1 style="text-align: center;"> Configuration Management </h1>
+         
+         <hr>
+         <br>
+         <h3>Why we need configuration management  ?</h3>
+         <p>   Before configuration management system administrators usually perform repetitive tasks such as installing servers, configuring those servers, etc. They can automate this task, by writing scripts, but it is a very hectic job when you are working on a large infrastructure.
+    Problems in before continuous management–
+   </p>
+  <ul>
+    <li>Configuring large infrastructure was very hectic job. Suppose system administrator has to deploy Mean stack application on the four node, so that is not big issue he can manually deploy Mean stack on four node but happens if the infrastructure is huge let say now he has to deploy Mean stack on hundreds of node. So now he cannot go and deploy the application manually on the hundreds of node because it will take lot of time, wastage of resources and along that there is chance of human error.</li>
+    <li>Rollback to the previous version of the software was very difficult because suppose there is an updated version of mongoDB is available and now the organization wants to update the Mean stack application on the all nodes. So system administration will go and manually update all the nodes but let suppose there are certain glitches with the updated version of the software and now organization wants to roll back to the previous version of the software, so again system admiration has to go reinstall the previous version of mongoDB on the nodes. So we can see that it will become vary tedious job for the system admiration and wastage of lot of time in doing all that.</li>
+    <li>Suppose the development environment and testing environment using updated version of software (like mongoDB) but in production environment they still using previous version of the software. So in this case if some application is not compatible with previous version of the software, it will work properly in development and testing environment as well but it will not work in production environment.</li>
+    
+  </ul>
+    
+         <h3>What is configuration management  ?</h3>
+         <p> Configuration management is basically a process that helps to manage the changes in the infrastructure in most systematically and structured way. It allows access to an accurate historical record of the system state for the project management. The configuration management can be achieving with help of concept of Infrastructure as Code (IAS).  Infrastructure as code means writing code for your infrastructure and it is written at one central location we can call it server or master and that code is deploy on DEV environment, TEST environment and PROD environment basically on entire infrastructure. So now he can configure every node of the infrastructure from one central location. Suppose system administrators has to install apache, Tomcat on the nodes, so he can write a code in one master server and push it on all the nodes. So now he does not have to configure the all the nodes manually, he can configure and manage the entire infrastructure from one location master server. So it will save the time.</p>
+            <p> Before configuration management it was very difficult to roll back to previous version of software but now the entire infrastructure is manage from one central location so rolling back to previous version of the software become very easy. And the third problem in before configuration management was variation and inconsistency in varies team like DEV team, TEST team and PROD team, like computing environment was different in DEV, TEST and PROD team. But now with the help of infrastructure as code all three environments DEV, TEST and PROD are in the same computing environment.</p>
+            <h4>Configuration Management approaches —</h5><p> There are two configuration management approaches: Push and Pull approach.</p>
+
+         <img src="images/push-pull.gif" style="width: 90%">
+
+         <p>There are broadly two ways to manage your configurations namely Push and Pull configurations.</p>
+             <ul>
+             	<li>
+             		<b>Pull Configuration:-</b><p>In this type of Configuration Management, the nodes poll a centralized server periodically for updates. These nodes are dynamically configured so basically they are pulling configurations from the centralized server. Pull configuration is used by tools like Chef, Puppet etc.</p>
+             	</li>
+             	<li><b>Push Configuration:-</b><p>In this type of Configuration Management, the centralized Server pushes the configurations to the nodes. Unlike Pull Configuration, there are certain commands that have to be executed in the centralized server in order to configure the nodes. Push Configuration is used by tools like Ansible.</p></li>
+            	
+             </ul>
+             <br></br>
